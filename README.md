@@ -76,3 +76,19 @@ Nested Dynamic Routes allow you to create URLs like /users/123/posts/456 where b
 
 ![image](https://github.com/user-attachments/assets/c811fbcf-2f5e-4dc9-b01c-3d2a7ce48252)
 
+✅ 5. NCatch-All Segments Routing
+
+📌 Description:
+A catch-all route matches multiple segments of a URL using [...slug] syntax.
+A optional catch-all route uses [[...slug]] to match zero or more segments.
+
+✅ Required Catch-All Segment
+📁 Example Structure:
+
+![image](https://github.com/user-attachments/assets/82808564-9634-4892-89ca-85550a3a6589)
+
+✅ Optional Catch-All Segment
+📁 Example Structure:
+
+![image](https://github.com/user-attachments/assets/ea8ee3eb-0c07-4d15-8b7f-08e864f3ca64)
+
