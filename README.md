@@ -37,3 +37,5 @@ npx create-next-app@latest next-js-sample
 cd next-js-sample
 npm run dev
 ```
+![image](https://github.com/user-attachments/assets/84ddecc5-f0ff-45ef-8600-2cf1fd53ab8b)
+
