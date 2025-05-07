@@ -39,3 +39,27 @@ npm run dev
 ```
 ![image](https://github.com/user-attachments/assets/84ddecc5-f0ff-45ef-8600-2cf1fd53ab8b)
 
+### Routings
+✅ 1. Single Routing
+📌 Description:
+Basic routing where each route corresponds to a top-level folder in src/app.
+
+📁 Example Structure:
+
+![image](https://github.com/user-attachments/assets/0613cdcc-8c55-4f87-bb24-c4eea612ee89)
+
+✅ 2. Nested Routing
+📌 Description:
+Routing that reflects nested folder structure. Great for layout composition and sections.
+
+📁 Example Structure:
+
+![image](https://github.com/user-attachments/assets/233de86e-b6cb-41ad-9a57-8c09b39631f9)
+
+✅ 3. Dynamic Routing
+📌 Description:
+Routes that capture variable values using brackets ([param]), e.g., /blog/[slug].
+
+📁 Example Structure:
+
+![image](https://github.com/user-attachments/assets/a3bb0502-e883-411a-a450-bf8d90d8846a)
