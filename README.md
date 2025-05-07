@@ -41,6 +41,7 @@ npm run dev
 
 ### Routings
 ✅ 1. Single Routing
+
 📌 Description:
 Basic routing where each route corresponds to a top-level folder in src/app.
 
@@ -49,6 +50,7 @@ Basic routing where each route corresponds to a top-level folder in src/app.
 ![image](https://github.com/user-attachments/assets/0613cdcc-8c55-4f87-bb24-c4eea612ee89)
 
 ✅ 2. Nested Routing
+
 📌 Description:
 Routing that reflects nested folder structure. Great for layout composition and sections.
 
@@ -57,9 +59,36 @@ Routing that reflects nested folder structure. Great for layout composition and 
 ![image](https://github.com/user-attachments/assets/233de86e-b6cb-41ad-9a57-8c09b39631f9)
 
 ✅ 3. Dynamic Routing
+
 📌 Description:
 Routes that capture variable values using brackets ([param]), e.g., /blog/[slug].
 
 📁 Example Structure:
 
 ![image](https://github.com/user-attachments/assets/a3bb0502-e883-411a-a450-bf8d90d8846a)
+
+✅ 4. Nested Dynamic Routing
+
+📌 Description:
+Nested Dynamic Routes allow you to create URLs like /users/123/posts/456 where both userId and postId are dynamic.
+
+📁 Example Structure:
+
+![image](https://github.com/user-attachments/assets/c811fbcf-2f5e-4dc9-b01c-3d2a7ce48252)
+
+✅ 5. NCatch-All Segments Routing
+
+📌 Description:
+A catch-all route matches multiple segments of a URL using [...slug] syntax.
+A optional catch-all route uses [[...slug]] to match zero or more segments.
+
+✅ Required Catch-All Segment
+📁 Example Structure:
+
+![image](https://github.com/user-attachments/assets/82808564-9634-4892-89ca-85550a3a6589)
+
+✅ Optional Catch-All Segment
+📁 Example Structure:
+
+![image](https://github.com/user-attachments/assets/ea8ee3eb-0c07-4d15-8b7f-08e864f3ca64)
+
