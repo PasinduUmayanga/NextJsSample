@@ -4,18 +4,18 @@ import React from "react";
  * The slug parameter is used to fetch and display the content of the blog post.
  */
 interface BlogPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-const BlogPage: React.FC<BlogPageProps> = ({ params }) => {
-  const { slug } = params;
+const BlogPage: React.FC<BlogPageProps> = async ({ params }) => {
+  const { slug } = await params;
 
   return (
     <div>
       <h1>Blog Post: {slug}</h1>
-      <p>This is the blog post content for "{slug}".</p>
+      <p>This is the blog post content for &quot;{slug}&quot;.</p>
     </div>
   );
 };

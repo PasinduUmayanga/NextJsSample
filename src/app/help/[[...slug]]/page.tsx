@@ -1,7 +1,12 @@
 import React from "react";
 
-const HelpPage = ({ params }: { params: { slug?: string[] } }) => {
-  const slug = params?.slug || [];
+const HelpPage = async ({
+  params,
+}: {
+  params: Promise<{ slug?: string[] }>;
+}) => {
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug || [];
 
   return (
     <div>
