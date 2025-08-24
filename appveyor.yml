@@ -30,8 +30,8 @@ artifacts:
     type: zip
 
 cache:
-  - node_modules -> package-lock.json # or yarn.lock / pnpm-lock.yaml
-  - '.next\cache' # persist Next.js build cache
-  - '%APPDATA%\npm-cache' # npm cache (Windows)
-  # For Yarn: '%LOCALAPPDATA%\Yarn\Cache'
-  # For pnpm: '%USERPROFILE%\.pnpm-store'
+  - node_modules -> package-lock.json
+  - '.next\cache'
+  - '%LOCALAPPDATA%\npm-cache' # ✅ correct npm cache path on Windows
+  # Yarn:  '%LOCALAPPDATA%\Yarn\Cache'
+  # pnpm:  '%USERPROFILE%\.pnpm-store'
