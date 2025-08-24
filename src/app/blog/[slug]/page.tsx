@@ -24,6 +24,9 @@ export default BlogPage;
 
 export function generateStaticParams() {
   return [
+    { slug: "1" },
+    { slug: "2" },
+    { slug: "3" },
     { slug: "first-post" },
     { slug: "second-post" },
     { slug: "third-post" },
