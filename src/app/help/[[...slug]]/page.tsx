@@ -21,3 +21,12 @@ const HelpPage = async ({
 };
 
 export default HelpPage;
+
+export function generateStaticParams() {
+  return [
+    { slug: undefined },
+    { slug: ["getting-started"] },
+    { slug: ["faq"] },
+    { slug: ["contact", "support"] },
+  ];
+}

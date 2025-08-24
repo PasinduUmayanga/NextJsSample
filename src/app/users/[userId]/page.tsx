@@ -1,7 +1,14 @@
-"use client";
-import { useParams } from "next/navigation";
+interface UserPageProps {
+  params: Promise<{
+    userId: string;
+  }>;
+}
 
-export default function UserPage() {
-  const params = useParams();
-  return <h1>User ID: {params.userId}</h1>;
+export default async function UserPage({ params }: UserPageProps) {
+  const { userId } = await params;
+  return <h1>User ID: {userId}</h1>;
+}
+
+export function generateStaticParams() {
+  return [{ userId: "1" }, { userId: "2" }, { userId: "3" }];
 }

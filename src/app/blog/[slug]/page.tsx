@@ -21,3 +21,11 @@ const BlogPage: React.FC<BlogPageProps> = async ({ params }) => {
 };
 
 export default BlogPage;
+
+export function generateStaticParams() {
+  return [
+    { slug: "first-post" },
+    { slug: "second-post" },
+    { slug: "third-post" },
+  ];
+}

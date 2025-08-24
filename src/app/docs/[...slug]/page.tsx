@@ -1,9 +1,11 @@
-"use client";
-import { useParams } from "next/navigation";
+interface DocsPageProps {
+  params: Promise<{
+    slug: string[];
+  }>;
+}
 
-export default function DocsPage() {
-  const params = useParams();
-  const slug = params.slug as string[]; // catch-all returns an array
+export default async function DocsPage({ params }: DocsPageProps) {
+  const { slug } = await params;
 
   return (
     <div>
@@ -11,4 +13,13 @@ export default function DocsPage() {
       <p>Segments: {slug?.join(" / ")}</p>
     </div>
   );
+}
+
+export function generateStaticParams() {
+  return [
+    { slug: ["introduction"] },
+    { slug: ["getting-started", "installation"] },
+    { slug: ["api", "reference"] },
+    { slug: ["examples", "basic-usage"] },
+  ];
 }
