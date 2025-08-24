@@ -1,4 +1,3 @@
-# appveyor.yml
 version: "{build}"
 image: Visual Studio 2022
 
@@ -6,33 +5,29 @@ environment:
   NODEJS_VERSION: "20"
   NEXT_TELEMETRY_DISABLED: "1"
   CI: "true"
-  # If your build is heavy, uncomment:
-  # NODE_OPTIONS: "--max_old_space_size=4096"
 
 install:
-  # AppVeyor helper to install Node on Windows images
+  # Install Node.js
   - ps: Install-Product node $env:NODEJS_VERSION
   - node -v
   - npm -v
   - npm ci
 
-build: off
+build: off # 👈 turn off MSBuild
 
 build_script:
-  - npm run build
+  - npm run build # Next.js build
 
 test_script:
   - npm test --if-present
 
 artifacts:
-  # Keep Next.js build output as artifact (useful for inspection)
+  # Upload Next.js output folder if needed
   - path: .next
     name: next-build
-  # If you do static export (next export), publish the "out" dir:
   - path: out\**
     name: static-export
     type: zip
 
 cache:
-  # Reuse deps when lockfile unchanged
   - node_modules -> package-lock.json
