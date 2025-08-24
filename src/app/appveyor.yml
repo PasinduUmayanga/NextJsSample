@@ -16,6 +16,8 @@ install:
   - npm -v
   - npm ci
 
+build: off
+
 build_script:
   - npm run build
 
