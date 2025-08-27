@@ -7,4 +7,3 @@ export default function AboutPage() {
     </div>
   );
 }
-https://www.youtube.com/watch?v=qA3IcQrIcgo&list=RDqA3IcQrIcgo&start_radio=1&ab_channel=HiruFM
