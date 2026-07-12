@@ -9,7 +9,7 @@ export default function HomePage() {
           Explore examples for single routes, nested routes, dynamic routes,
           and catch-all segments.
         </p>
-        <Link href="/features/routings" style={styles.button}>
+        <Link href="/features/routingtypes" style={styles.button}>
           Open routing examples
         </Link>
       </section>
