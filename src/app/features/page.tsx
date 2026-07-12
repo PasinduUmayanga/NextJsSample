@@ -22,6 +22,13 @@ const FEATURES = [
       "Learn server-side data loading, static data, and refresh patterns.",
     color: "#dc2626",
   },
+  {
+    href: "/features/navigation",
+    title: "Navigation",
+    description:
+      "Practice links, router hooks, redirects, route params, query params, and prefetching.",
+    color: "#0891b2",
+  },
 ];
 
 export default function FeaturesPage() {

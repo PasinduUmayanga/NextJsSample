@@ -20,6 +20,9 @@ This is a small Next.js App Router routing playground.
 - `src/app/features/page.tsx`: feature selector page.
 - `src/app/features/data-fetching/page.tsx`: data fetching router selector page.
 - `src/app/features/data-fetching/_components.tsx`: shared data-fetching page UI helpers.
+- `src/app/features/navigation/page.tsx`: navigation topic selector page.
+- `src/app/features/navigation/navigation-samples.ts`: shared navigation topic descriptions and code samples.
+- `src/app/features/navigation/[slug]/page.tsx`: navigation topic detail page.
 - `src/app/features/data-fetching/app-router/page.tsx`: App Router data-fetching categories.
 - `src/app/features/data-fetching/pages-router/page.tsx`: Pages Router data-fetching categories.
 - `src/app/features/routing-types/page.tsx`: routing type selector page.
@@ -41,6 +44,16 @@ This is a small Next.js App Router routing playground.
 
 - `/features`: feature selector page
 - `/about`: about page for the learning app
+- `/features/navigation`: navigation examples page
+- `/features/navigation/link`: Link navigation sample
+- `/features/navigation/use-router`: useRouter navigation sample
+- `/features/navigation/use-pathname`: usePathname navigation sample
+- `/features/navigation/use-search-params`: useSearchParams navigation sample
+- `/features/navigation/redirects`: redirects navigation sample
+- `/features/navigation/route-parameters`: route parameters navigation sample
+- `/features/navigation/query-parameters`: query parameters navigation sample
+- `/features/navigation/prefetching`: prefetching navigation sample
+- `/features/navigation/client-side-navigation`: client-side navigation sample
 - `/features/data-fetching`: data fetching router selector page
 - `/features/data-fetching/app-router`: App Router data-fetching categories
 - `/features/data-fetching/app-router/server-side`: App Router server-side fetching
