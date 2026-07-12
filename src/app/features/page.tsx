@@ -15,6 +15,13 @@ const FEATURES = [
       "Compare server components, client components, and shared UI components.",
     color: "#7c3aed",
   },
+  {
+    href: "/features/data-fetching",
+    title: "Data Fetching",
+    description:
+      "Learn server-side data loading, static data, and refresh patterns.",
+    color: "#dc2626",
+  },
 ];
 
 export default function FeaturesPage() {

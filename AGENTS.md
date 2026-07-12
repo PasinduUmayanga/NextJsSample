@@ -14,6 +14,10 @@ This is a small Next.js App Router routing playground.
 - `src/app/page.tsx`: home page with link to the features hub.
 - `src/app/setting-up-nextjs/page.tsx`: setup guide for creating and running a Next.js app.
 - `src/app/features/page.tsx`: feature selector page.
+- `src/app/features/data-fetching/page.tsx`: data fetching router selector page.
+- `src/app/features/data-fetching/_components.tsx`: shared data-fetching page UI helpers.
+- `src/app/features/data-fetching/app-router/page.tsx`: App Router data-fetching categories.
+- `src/app/features/data-fetching/pages-router/page.tsx`: Pages Router data-fetching categories.
 - `src/app/features/routing-types/page.tsx`: routing type selector page.
 - `src/app/features/component-types/page.tsx`: component type sample page.
 - `src/app/features/component-types/component-features-table.tsx`: component comparison table.
@@ -31,6 +35,29 @@ This is a small Next.js App Router routing playground.
 ## Routes
 
 - `/features`: feature selector page
+- `/features/data-fetching`: data fetching router selector page
+- `/features/data-fetching/app-router`: App Router data-fetching categories
+- `/features/data-fetching/app-router/server-side`: App Router server-side fetching
+- `/features/data-fetching/app-router/server-side/fetch`: App Router fetch example
+- `/features/data-fetching/app-router/server-side/orm-database`: App Router ORM/database example
+- `/features/data-fetching/app-router/client-side`: App Router client-side fetching
+- `/features/data-fetching/app-router/client-side/use-effect`: App Router useEffect example
+- `/features/data-fetching/app-router/client-side/swr`: App Router SWR example
+- `/features/data-fetching/app-router/client-side/tanstack-query`: App Router TanStack Query example
+- `/features/data-fetching/app-router/streaming`: App Router streaming categories
+- `/features/data-fetching/app-router/streaming/loading-tsx`: loading.tsx example
+- `/features/data-fetching/app-router/streaming/suspense`: Suspense streaming example
+- `/features/data-fetching/pages-router`: Pages Router data-fetching categories
+- `/features/data-fetching/pages-router/static-site-generation`: SSG category
+- `/features/data-fetching/pages-router/static-site-generation/get-static-props`: getStaticProps example
+- `/features/data-fetching/pages-router/server-side-rendering`: SSR category
+- `/features/data-fetching/pages-router/server-side-rendering/get-server-side-props`: getServerSideProps example
+- `/features/data-fetching/pages-router/incremental-static-regeneration`: ISR category
+- `/features/data-fetching/pages-router/incremental-static-regeneration/get-static-props-revalidate`: getStaticProps revalidate example
+- `/features/data-fetching/pages-router/client-side-rendering`: CSR category
+- `/features/data-fetching/pages-router/client-side-rendering/use-effect`: Pages Router useEffect example
+- `/features/data-fetching/pages-router/client-side-rendering/swr`: Pages Router SWR example
+- `/features/data-fetching/pages-router/client-side-rendering/tanstack-query`: Pages Router TanStack Query example
 - `/setting-up-nextjs`: setup guide for creating and running a Next.js app
 - `/features/routing-types`: routing type selector page
 - `/features/component-types`: component type sample page
