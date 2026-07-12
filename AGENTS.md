@@ -11,7 +11,7 @@ This is a small Next.js App Router routing playground.
 ## Structure
 
 - `src/app/layout.tsx`: root HTML shell, fonts, metadata, global CSS import.
-- `src/app/_components/back-button.tsx`: shared sticky back navigation button.
+- `src/app/_components/app-nav.tsx`: shared sticky top navigation bar.
 - `src/app/_components/code-block.tsx`: shared IDE-like code block and syntax color styling.
 - `src/app/not-found.tsx`: custom 404 page for unmatched routes.
 - `src/app/about/page.tsx`: about page for the learning app.

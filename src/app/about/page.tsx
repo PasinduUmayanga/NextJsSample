@@ -1,4 +1,3 @@
-import BackButton from "@/app/_components/back-button";
 
 const ABOUT_SECTIONS = [
   {
@@ -22,7 +21,6 @@ export default function AboutPage() {
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <BackButton href="/" label="Back to home" />
         <h1 style={styles.title}>About This Next.js Learning App</h1>
         <p style={styles.description}>
           This app is built as a hands-on reference for learning modern Next.js

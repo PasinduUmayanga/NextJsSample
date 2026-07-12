@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import BackButton from "@/app/_components/back-button";
 
 type MenuSection = {
   group: string;
@@ -101,7 +100,6 @@ export default function RoutingsPage() {
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <BackButton href="/features/routing-types" label="Back to routing types" />
         <h1 style={styles.title}>App Routing Examples</h1>
         <p style={styles.description}>
           Choose an App Router example and open the matching route.

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import BackButton from "@/app/_components/back-button";
 import ComponentFeaturesTable from "./component-features-table";
 import ComponentRenderingComparison from "./component-rendering-comparison";
 
@@ -28,7 +27,6 @@ export default function ComponentTypesPage() {
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <BackButton href="/features" label="Back to features" />
         <h1 style={styles.title}>Component Types</h1>
         <p style={styles.description}>
           Choose a component type to see details, a live sample, and commented

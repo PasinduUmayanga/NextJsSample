@@ -1,5 +1,3 @@
-import BackButton from "@/app/_components/back-button";
-
 const ROUTE_DETAILS = [
   {
     label: "Route path",
@@ -19,7 +17,6 @@ export default function AboutPage() {
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <BackButton href="/features/routing-types/app-routing" label="Back to app routing" />
         <h1 style={styles.title}>About Route Sample</h1>
         <p style={styles.description}>
           This page shows a single App Router route. In the App Router, the

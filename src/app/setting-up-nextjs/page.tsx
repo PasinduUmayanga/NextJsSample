@@ -1,4 +1,3 @@
-import BackButton from "@/app/_components/back-button";
 import CodeBlock from "@/app/_components/code-block";
 
 const SETUP_STEPS = [
@@ -93,7 +92,6 @@ export default function SettingUpNextJsPage() {
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <BackButton href="/" label="Back to home" />
         <h1 style={styles.title}>Setting up Next.js</h1>
         <p style={styles.description}>
           Follow these ordered installation steps to create, run, edit, and

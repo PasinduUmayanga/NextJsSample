@@ -1,5 +1,4 @@
 import Link from "next/link";
-import BackButton from "@/app/_components/back-button";
 
 const FEATURES = [
   {
@@ -29,7 +28,6 @@ export default function FeaturesPage() {
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <BackButton href="/" label="Back to home" />
         <h1 style={styles.title}>Features</h1>
         <p style={styles.description}>
           Choose a Next.js concept to explore with small examples.

@@ -1,4 +1,3 @@
-import BackButton from "@/app/_components/back-button";
 
 interface PostPageProps {
   params: Promise<{
@@ -11,7 +10,6 @@ export default async function PostPage({ params }: PostPageProps) {
   const { userId, postId } = await params;
   return (
     <div>
-      <BackButton href="/features/routing-types/app-routing" label="Back to app routing" />
       <h1>User ID: {userId}</h1>
       <h2>Post ID: {postId}</h2>
     </div>

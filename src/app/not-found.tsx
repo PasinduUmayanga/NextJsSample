@@ -1,11 +1,9 @@
 import Link from "next/link";
-import BackButton from "@/app/_components/back-button";
 
 export default function NotFound() {
   return (
     <main style={styles.page}>
       <section style={styles.panel}>
-        <BackButton href="/" label="Back to home" />
         <p style={styles.status}>404</p>
         <h1 style={styles.title}>Page not found</h1>
         <p style={styles.description}>

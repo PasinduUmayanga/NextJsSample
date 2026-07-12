@@ -1,5 +1,4 @@
 import Link from "next/link";
-import BackButton from "@/app/_components/back-button";
 import CodeBlock from "@/app/_components/code-block";
 
 type Card = {
@@ -24,7 +23,6 @@ export function PageShell({
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <BackButton href={backHref} label={backText} />
         <h1 style={styles.title}>{title}</h1>
         <p style={styles.description}>{description}</p>
         {children}

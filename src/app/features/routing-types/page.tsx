@@ -1,5 +1,4 @@
 import Link from "next/link";
-import BackButton from "@/app/_components/back-button";
 
 const ROUTING_TYPES = [
   {
@@ -24,7 +23,6 @@ export default function RoutingTypesPage() {
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <BackButton href="/features" label="Back to features" />
         <h1 style={styles.title}>Routing Types</h1>
         <p style={styles.description}>
           Choose which routing concept you want to explore.

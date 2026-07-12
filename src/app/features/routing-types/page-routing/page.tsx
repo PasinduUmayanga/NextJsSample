@@ -1,11 +1,9 @@
-import BackButton from "@/app/_components/back-button";
 import CodeBlock from "@/app/_components/code-block";
 
 export default function PageRoutingSample() {
   return (
     <main style={styles.page}>
       <section style={styles.panel}>
-        <BackButton href="/features/routing-types" label="Back to routing types" />
         <h1 style={styles.title}>Page Routing Sample</h1>
         <p style={styles.description}>
           This page is rendered from{" "}

@@ -1,5 +1,4 @@
 import React from "react";
-import BackButton from "@/app/_components/back-button";
 /**
  * This is a dynamic route page for blog posts.
  * The slug parameter is used to fetch and display the content of the blog post.
@@ -15,7 +14,6 @@ const BlogPage: React.FC<BlogPageProps> = async ({ params }) => {
 
   return (
     <div>
-      <BackButton href="/features/routing-types/app-routing" label="Back to app routing" />
       <h1>Blog Post: {slug}</h1>
       <p>This is the blog post content for &quot;{slug}&quot;.</p>
     </div>

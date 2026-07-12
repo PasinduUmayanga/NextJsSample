@@ -1,4 +1,3 @@
-import BackButton from "@/app/_components/back-button";
 import CodeBlock from "@/app/_components/code-block";
 import SharedUiCard from "./shared-ui-card";
 
@@ -21,7 +20,6 @@ export default function SharedUiComponentsPage() {
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <BackButton href="/features/component-types" label="Back to component types" />
         <h1 style={styles.title}>Shared UI Components</h1>
         <p style={styles.description}>
           Reusable presentational components controlled by props. They keep

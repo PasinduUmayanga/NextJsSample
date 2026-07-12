@@ -1,4 +1,3 @@
-import BackButton from "@/app/_components/back-button";
 import CodeBlock from "@/app/_components/code-block";
 import ServerComponentSample from "./server-component-sample";
 
@@ -14,7 +13,6 @@ export default function ServerComponentsPage() {
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <BackButton href="/features/component-types" label="Back to component types" />
         <h1 style={styles.title}>Server Components</h1>
         <p style={styles.description}>
           Render on the server by default in the App Router. Use them for data

@@ -1,4 +1,3 @@
-import BackButton from "@/app/_components/back-button";
 import CodeBlock from "@/app/_components/code-block";
 import ClientComponentSample from "./client-component-sample";
 
@@ -17,7 +16,6 @@ export default function ClientComponentsPage() {
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <BackButton href="/features/component-types" label="Back to component types" />
         <h1 style={styles.title}>Client Components</h1>
         <p style={styles.description}>
           Run in the browser. Use them when a component needs state, lifecycle

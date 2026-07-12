@@ -1,4 +1,3 @@
-import BackButton from "@/app/_components/back-button";
 
 interface DocsPageProps {
   params: Promise<{
@@ -11,7 +10,6 @@ export default async function DocsPage({ params }: DocsPageProps) {
 
   return (
     <div>
-      <BackButton href="/features/routing-types/app-routing" label="Back to app routing" />
       <h1>Docs Route</h1>
       <p>Segments: {slug?.join(" / ")}</p>
     </div>
