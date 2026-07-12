@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { publicAssetPath } from "@/app/_lib/site-paths";
 import styles from "./app-nav.module.css";
 
 const APP_COLORS = {
@@ -67,7 +68,7 @@ export default function AppNav() {
         ) : null}
         <Link href="/" className={styles.brand}>
           <Image
-            src="/app-logo.png"
+            src={publicAssetPath("/app-logo.png")}
             alt=""
             aria-hidden="true"
             className={styles.logo}

@@ -157,7 +157,7 @@ out/features/index.html
 out/features/state-management/index.html
 ```
 
-When hosting under `/NextJsSample` in IIS, copy the contents of `out` into the IIS `NextJsSample` folder and make sure `index.html` is enabled as a default document.
+When hosting under `/NextJsSample` in IIS, copy the contents of `out` into the IIS `NextJsSample` folder. Do not copy the `out` folder itself as a nested folder. The exported `web.config` enables `index.html` as the default document and adds MIME mappings for static assets such as CSS and JavaScript.
 
 Start the production server:
 

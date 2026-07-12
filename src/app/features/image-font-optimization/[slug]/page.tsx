@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import CodeBlock from "@/app/_components/code-block";
+import { publicAssetPath } from "@/app/_lib/site-paths";
 import { OPTIMIZATION_SAMPLES } from "../optimization-samples";
 
 type OptimizationDetailPageProps = {
@@ -65,7 +66,7 @@ function OptimizationPreview({ slug }: Readonly<{ slug: string }>) {
       <section style={styles.preview}>
         <div style={styles.responsiveFrame}>
           <Image
-            src="/app-logo.png"
+            src={publicAssetPath("/app-logo.png")}
             alt="Responsive sample logo"
             fill
             sizes="(max-width: 768px) 100vw, 420px"
@@ -109,7 +110,7 @@ function OptimizationPreview({ slug }: Readonly<{ slug: string }>) {
       <section style={styles.preview}>
         <div style={styles.placeholderFrame}>
           <Image
-            src="/app-logo.png"
+            src={publicAssetPath("/app-logo.png")}
             alt="Logo with placeholder styling"
             width={160}
             height={160}
@@ -130,7 +131,7 @@ function OptimizationPreview({ slug }: Readonly<{ slug: string }>) {
         <div style={styles.priorityFrame}>
           <span style={styles.priorityBadge}>priority</span>
           <Image
-            src="/app-logo.png"
+            src={publicAssetPath("/app-logo.png")}
             alt="Priority logo sample"
             width={180}
             height={180}
@@ -148,7 +149,7 @@ function OptimizationPreview({ slug }: Readonly<{ slug: string }>) {
     return (
       <section style={styles.fontPreview}>
         <Image
-          src="/app-logo.png"
+          src={publicAssetPath("/app-logo.png")}
           alt=""
           aria-hidden="true"
           width={72}
@@ -179,7 +180,7 @@ function PreviewImageCard({ label }: Readonly<{ label: string }>) {
   return (
     <div style={styles.previewCard}>
       <Image
-        src="/app-logo.png"
+        src={publicAssetPath("/app-logo.png")}
         alt="Next.js Learning Hub logo"
         width={150}
         height={150}

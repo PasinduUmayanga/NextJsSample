@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import AppNav from "@/app/_components/app-nav";
+import { publicAssetPath } from "@/app/_lib/site-paths";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -21,9 +22,9 @@ export const metadata: Metadata = {
   },
   description: "A Next.js App Router learning sample.",
   icons: {
-    apple: [{ url: "/apple-icon.png", type: "image/png" }],
-    icon: [{ url: "/icon.png", type: "image/png" }],
-    shortcut: ["/icon.png"],
+    apple: [{ url: publicAssetPath("/apple-icon.png"), type: "image/png" }],
+    icon: [{ url: publicAssetPath("/icon.png"), type: "image/png" }],
+    shortcut: [publicAssetPath("/icon.png")],
   },
 };
 

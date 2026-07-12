@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { publicAssetPath } from "@/app/_lib/site-paths";
 
 const HOME_ITEMS = [
   {
@@ -26,7 +27,7 @@ export default function HomePage() {
   return (
     <main style={styles.page}>
       <Image
-        src="/app-logo.png"
+        src={publicAssetPath("/app-logo.png")}
         alt=""
         aria-hidden="true"
         fill
