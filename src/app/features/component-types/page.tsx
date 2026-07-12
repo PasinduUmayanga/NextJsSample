@@ -1,6 +1,7 @@
 import Link from "next/link";
 import BackButton from "@/app/_components/back-button";
 import ComponentFeaturesTable from "./component-features-table";
+import ComponentRenderingComparison from "./component-rendering-comparison";
 
 const COMPONENT_TYPES = [
   {
@@ -33,6 +34,7 @@ export default function ComponentTypesPage() {
           Choose a component type to see details, a live sample, and commented
           code.
         </p>
+        <ComponentRenderingComparison />
         <ComponentFeaturesTable />
         <div style={styles.grid}>
           {COMPONENT_TYPES.map((type) => (

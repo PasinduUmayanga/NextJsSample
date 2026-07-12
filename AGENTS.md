@@ -25,6 +25,7 @@ This is a small Next.js App Router routing playground.
 - `src/app/features/routing-types/page.tsx`: routing type selector page.
 - `src/app/features/component-types/page.tsx`: component type sample page.
 - `src/app/features/component-types/component-features-table.tsx`: component comparison table.
+- `src/app/features/component-types/component-rendering-comparison.tsx`: server/client rendering comparison section.
 - `src/app/features/component-types/server-components/page.tsx`: server component detail page.
 - `src/app/features/component-types/server-components/server-component-sample.tsx`: server component sample.
 - `src/app/features/component-types/client-components/page.tsx`: client component detail page.
