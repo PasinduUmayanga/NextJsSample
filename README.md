@@ -1,5 +1,5 @@
 ![Image](https://github.com/user-attachments/assets/deeedf66-919e-44ff-a59f-b488111194d2)
-[![Build status](https://ci.appveyor.com/api/projects/status/79ff1day6l9uhqae?svg=true)](https://ci.appveyor.com/project/Mahadenamuththa/nextjssample)
+[![Build status](https://ci.appveyor.com/api/projects/status/79ff1day6l9uhqae/branch/master?svg=true)](https://ci.appveyor.com/project/Mahadenamuththa/nextjssample/branch/master)
 [![Build History](https://img.shields.io/badge/AppVeyor-Build%20History-blue)](https://ci.appveyor.com/project/Mahadenamuththa/nextjssample/history)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-blue)](https://pasinduumayanga.github.io/NextJsSample/)
 
