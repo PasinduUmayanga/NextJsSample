@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:iis-nextjssample": "set NEXT_PUBLIC_BASE_PATH=/NextJsSample&& next build",
     "start": "next start",
     "lint": "next lint"
   },

@@ -150,6 +150,12 @@ Build for production:
 npm run build
 ```
 
+Build for a subfolder such as `/NextJsSample`:
+
+```bash
+npm run build:iis-nextjssample
+```
+
 For static hosting, Next.js exports the site to the `out` folder. This project uses `trailingSlash: true`, so routes are exported as folders with `index.html` files, for example:
 
 ```text
@@ -157,7 +163,16 @@ out/features/index.html
 out/features/state-management/index.html
 ```
 
-When hosting under `/NextJsSample` in IIS, copy the contents of `out` into the IIS `NextJsSample` folder. Do not copy the `out` folder itself as a nested folder. The exported `web.config` enables `index.html` as the default document and adds MIME mappings for static assets such as CSS and JavaScript.
+When hosting at the IIS site root, use the normal `npm run build` output and copy the contents of `out` into that IIS root folder. When hosting under `/NextJsSample`, build with `NEXT_PUBLIC_BASE_PATH="/NextJsSample"` and copy the contents of `out` into the IIS `NextJsSample` folder. Do not copy the `out` folder itself as a nested folder. The exported `web.config` enables `index.html` as the default document and adds MIME mappings for static assets such as CSS and JavaScript.
+
+For the URL `http://localhost:7000/NextJsSample/features/`, the deployed folder must contain:
+
+```text
+C:\inetpub\wwwroot\nextjs_learning_hub\NextJsSample\index.html
+C:\inetpub\wwwroot\nextjs_learning_hub\NextJsSample\features\index.html
+C:\inetpub\wwwroot\nextjs_learning_hub\NextJsSample\_next\static\css\...
+C:\inetpub\wwwroot\nextjs_learning_hub\NextJsSample\app-logo.png
+```
 
 Start the production server:
 

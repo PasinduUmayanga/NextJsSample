@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 const isProd = process.env.NODE_ENV === "production";
-const repo = "NextJsSample";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -9,8 +9,10 @@ const nextConfig: NextConfig = {
   ...(isProd && {
     output: "export", // writes static site to ./out on build
     images: { unoptimized: true }, // Pages can't run Next/Image optimizer
-    basePath: `/${repo}`,
-    assetPrefix: `/${repo}/`,
+    ...(basePath && {
+      basePath,
+      assetPrefix: `${basePath}/`,
+    }),
     trailingSlash: true, // creates /route/index.html files for static hosts like IIS
   }),
 };
