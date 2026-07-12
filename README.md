@@ -1,16 +1,7 @@
 ![Image](https://github.com/user-attachments/assets/deeedf66-919e-44ff-a59f-b488111194d2)
 [![Build status](https://ci.appveyor.com/api/projects/status/79ff1day6l9uhqae?svg=true)](https://ci.appveyor.com/project/Mahadenamuththa/nextjssample)
+[![Build History](https://img.shields.io/badge/AppVeyor-Build%20History-blue)](https://ci.appveyor.com/project/Mahadenamuththa/nextjssample/history)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-blue)](https://pasinduumayanga.github.io/NextJsSample/)
-
-## Build History
-
-- **AppVeyor project:** [NextJsSample](https://ci.appveyor.com/project/Mahadenamuththa/nextjssample)
-- **Build history:** [View past AppVeyor builds](https://ci.appveyor.com/project/Mahadenamuththa/nextjssample/history)
-- **Build config:** [`appveyor.yml`](appveyor.yml)
-
-AppVeyor installs Node.js 20, runs `npm ci`, builds the project with
-`npm run build`, and runs `npm test --if-present`.
-
 
 
 ## First of All, What Is Next.js?
