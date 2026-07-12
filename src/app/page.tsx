@@ -19,9 +19,14 @@ export default function HomePage() {
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <h1 style={styles.title}>Next.js Sample</h1>
+        <h1 style={styles.title}>Next.js Learning Hub</h1>
         <p style={styles.description}>
-          Choose a topic to learn with small examples.
+          Next.js is a React framework for building fast web apps with routing,
+          rendering, data loading, and production tooling built in.
+        </p>
+        <p style={styles.descriptionSmall}>
+          Use this learning sample to explore setup, routing, and component
+          patterns step by step.
         </p>
         <div style={styles.grid}>
           {HOME_ITEMS.map((item) => (
@@ -68,8 +73,16 @@ const styles: Record<string, React.CSSProperties> = {
     color: "#4b5563",
     fontSize: 18,
     lineHeight: 1.6,
-    margin: "12px auto 24px",
+    margin: "12px auto 8px",
     maxWidth: 520,
+    textAlign: "center",
+  },
+  descriptionSmall: {
+    color: "#6b7280",
+    fontSize: 15,
+    lineHeight: 1.5,
+    margin: "0 auto 24px",
+    maxWidth: 560,
     textAlign: "center",
   },
   grid: {
