@@ -426,8 +426,13 @@ export default function ProductFilters({
       "Cookies work well for theme, locale, session hints, and other small preferences.",
       "Server Components can read incoming cookies with the cookies function.",
       "Server Functions and Route Handlers can also set or delete outgoing cookies.",
+      "Use secure, httpOnly cookies for sensitive session values instead of exposing them to browser JavaScript.",
+      "Keep cookie values small because they are sent with matching HTTP requests.",
     ],
-    code: `import { cookies } from "next/headers";
+    codeBlocks: [
+      {
+        title: "Read a cookie in a Server Component",
+        code: `import { cookies } from "next/headers";
 
 export default async function Page() {
   const cookieStore = await cookies();
@@ -435,6 +440,60 @@ export default async function Page() {
 
   return <main data-theme={theme}>Current theme: {theme}</main>;
 }`,
+      },
+      {
+        title: "Set a cookie in a Server Action",
+        code: `"use server";
+
+import { cookies } from "next/headers";
+
+export async function saveTheme(theme: "light" | "dark") {
+  const cookieStore = await cookies();
+
+  cookieStore.set("theme", theme, {
+    maxAge: 60 * 60 * 24 * 365,
+    path: "/",
+    sameSite: "lax",
+  });
+}`,
+      },
+      {
+        title: "Delete a cookie in a Server Action",
+        code: `"use server";
+
+import { cookies } from "next/headers";
+
+export async function resetTheme() {
+  const cookieStore = await cookies();
+
+  cookieStore.delete("theme");
+}`,
+      },
+      {
+        title: "Read cookies in a Route Handler",
+        code: `import { cookies } from "next/headers";
+import { NextResponse } from "next/server";
+
+export async function GET() {
+  const cookieStore = await cookies();
+  const locale = cookieStore.get("locale")?.value ?? "en";
+
+  return NextResponse.json({ locale });
+}`,
+      },
+      {
+        title: "Use a cookie value as initial client state",
+        code: `import { cookies } from "next/headers";
+import ThemeSwitcher from "./theme-switcher";
+
+export default async function SettingsPage() {
+  const cookieStore = await cookies();
+  const initialTheme = cookieStore.get("theme")?.value ?? "light";
+
+  return <ThemeSwitcher initialTheme={initialTheme} />;
+}`,
+      },
+    ],
   },
   {
     slug: "localstorage",
@@ -445,8 +504,13 @@ export default async function Page() {
       "localStorage is only available in the browser, so read it from Client Components.",
       "It is useful for low-risk preferences, draft UI settings, and local-only values.",
       "Do not store secrets or trusted authorization state in localStorage.",
+      "Read localStorage inside useEffect or event handlers so the server render does not try to access the browser API.",
+      "Pair localStorage updates with React state so the UI changes immediately.",
     ],
-    code: `"use client";
+    codeBlocks: [
+      {
+        title: "Read and write a saved preference",
+        code: `"use client";
 
 import { useEffect, useState } from "react";
 
@@ -464,6 +528,84 @@ export default function ThemeToggle() {
 
   return <button onClick={() => saveTheme("dark")}>{theme}</button>;
 }`,
+      },
+      {
+        title: "Persist a form draft",
+        code: `"use client";
+
+import { useEffect, useState } from "react";
+
+export default function DraftMessage() {
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    setMessage(localStorage.getItem("message-draft") ?? "");
+  }, []);
+
+  function updateMessage(nextMessage: string) {
+    setMessage(nextMessage);
+    localStorage.setItem("message-draft", nextMessage);
+  }
+
+  return (
+    <textarea
+      onChange={(event) => updateMessage(event.target.value)}
+      value={message}
+    />
+  );
+}`,
+      },
+      {
+        title: "Remove one stored value",
+        code: `"use client";
+
+export default function ClearThemeButton() {
+  function clearTheme() {
+    localStorage.removeItem("theme");
+  }
+
+  return <button onClick={clearTheme}>Clear saved theme</button>;
+}`,
+      },
+      {
+        title: "Reusable localStorage state hook",
+        code: `"use client";
+
+import { useEffect, useState } from "react";
+
+export function useLocalStorageState(key: string, initialValue: string) {
+  const [value, setValue] = useState(initialValue);
+
+  useEffect(() => {
+    setValue(localStorage.getItem(key) ?? initialValue);
+  }, [initialValue, key]);
+
+  function saveValue(nextValue: string) {
+    setValue(nextValue);
+    localStorage.setItem(key, nextValue);
+  }
+
+  return [value, saveValue] as const;
+}`,
+      },
+      {
+        title: "Use the reusable hook in a component",
+        code: `"use client";
+
+import { useLocalStorageState } from "./use-local-storage-state";
+
+export default function SidebarPreference() {
+  const [sidebar, setSidebar] = useLocalStorageState("sidebar", "open");
+  const nextSidebar = sidebar === "open" ? "closed" : "open";
+
+  return (
+    <button onClick={() => setSidebar(nextSidebar)}>
+      Sidebar is {sidebar}
+    </button>
+  );
+}`,
+      },
+    ],
   },
   {
     slug: "zustand",
@@ -474,8 +616,13 @@ export default function ThemeToggle() {
       "Zustand stores are hooks, so components select the state they need and re-render when that slice changes.",
       "It does not require wrapping the app in a Provider for basic usage.",
       "In Next.js, keep browser-specific Zustand stores in Client Components and avoid sharing per-user server data through module-level stores.",
+      "Use selectors so components only subscribe to the exact values or actions they need.",
+      "Add persistence middleware for low-risk browser preferences that can be stored in localStorage.",
     ],
-    code: `"use client";
+    codeBlocks: [
+      {
+        title: "Create a simple Zustand store",
+        code: `"use client";
 
 import { create } from "zustand";
 
@@ -495,6 +642,76 @@ export default function Counter() {
 
   return <button onClick={increment}>Count: {count}</button>;
 }`,
+      },
+      {
+        title: "Keep store code in a reusable file",
+        code: `"use client";
+
+import { create } from "zustand";
+
+type CartItem = {
+  id: string;
+  name: string;
+};
+
+type CartStore = {
+  items: CartItem[];
+  addItem: (item: CartItem) => void;
+  removeItem: (id: string) => void;
+};
+
+export const useCartStore = create<CartStore>((set) => ({
+  items: [],
+  addItem: (item) =>
+    set((state) => ({ items: [...state.items, item] })),
+  removeItem: (id) =>
+    set((state) => ({
+      items: state.items.filter((item) => item.id !== id),
+    })),
+}));`,
+      },
+      {
+        title: "Use selectors in components",
+        code: `"use client";
+
+import { useCartStore } from "./cart-store";
+
+export default function CartSummary() {
+  const itemCount = useCartStore((state) => state.items.length);
+  const addItem = useCartStore((state) => state.addItem);
+
+  return (
+    <button onClick={() => addItem({ id: "book", name: "Book" })}>
+      Cart items: {itemCount}
+    </button>
+  );
+}`,
+      },
+      {
+        title: "Persist low-risk browser state",
+        code: `"use client";
+
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+
+type PreferencesStore = {
+  density: "comfortable" | "compact";
+  setDensity: (density: "comfortable" | "compact") => void;
+};
+
+export const usePreferencesStore = create<PreferencesStore>()(
+  persist(
+    (set) => ({
+      density: "comfortable",
+      setDensity: (density) => set({ density }),
+    }),
+    {
+      name: "app-preferences",
+    }
+  )
+);`,
+      },
+    ],
   },
   {
     slug: "redux-toolkit",
@@ -505,8 +722,13 @@ export default function Counter() {
       "Redux Toolkit standardizes Redux setup with configureStore and createSlice.",
       "It is a good fit when many distant components share complex client state and explicit actions are helpful.",
       "In App Router projects, put the Redux Provider in a Client Component provider wrapper.",
+      "Create typed hooks once so components do not repeat RootState and AppDispatch types.",
+      "Keep slices focused on one state area such as cart, filters, auth UI, or notifications.",
     ],
-    code: `import { configureStore, createSlice } from "@reduxjs/toolkit";
+    codeBlocks: [
+      {
+        title: "Create a Redux slice",
+        code: `import { createSlice } from "@reduxjs/toolkit";
 
 const counterSlice = createSlice({
   name: "counter",
@@ -515,16 +737,71 @@ const counterSlice = createSlice({
     increment: (state) => {
       state.value += 1;
     },
+    decrement: (state) => {
+      state.value -= 1;
+    },
   },
 });
 
-export const { increment } = counterSlice.actions;
+export const { decrement, increment } = counterSlice.actions;
+export default counterSlice.reducer;`,
+      },
+      {
+        title: "Configure the Redux store",
+        code: `import { configureStore } from "@reduxjs/toolkit";
+import counterReducer from "./counter-slice";
 
 export const store = configureStore({
   reducer: {
-    counter: counterSlice.reducer,
+    counter: counterReducer,
   },
-});`,
+});
+
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;`,
+      },
+      {
+        title: "Create typed Redux hooks",
+        code: `"use client";
+
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "./store";
+
+export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
+export const useAppSelector = useSelector.withTypes<RootState>();`,
+      },
+      {
+        title: "Wrap the app with the Redux Provider",
+        code: `"use client";
+
+import { Provider } from "react-redux";
+import { store } from "./store";
+
+export function ReduxProvider({ children }: { children: React.ReactNode }) {
+  return <Provider store={store}>{children}</Provider>;
+}`,
+      },
+      {
+        title: "Use Redux state and actions in a component",
+        code: `"use client";
+
+import { decrement, increment } from "./counter-slice";
+import { useAppDispatch, useAppSelector } from "./redux-hooks";
+
+export default function CounterControls() {
+  const count = useAppSelector((state) => state.counter.value);
+  const dispatch = useAppDispatch();
+
+  return (
+    <div>
+      <button onClick={() => dispatch(decrement())}>-</button>
+      <span>{count}</span>
+      <button onClick={() => dispatch(increment())}>+</button>
+    </div>
+  );
+}`,
+      },
+    ],
   },
   {
     slug: "swr",
@@ -535,8 +812,13 @@ export const store = configureStore({
       "SWR is useful when a Client Component needs remote data from an API endpoint.",
       "A fetcher function defines how data is loaded, and useSWR returns data, error, and loading state.",
       "Use it for client-side data that should stay fresh after focus, reconnect, or cache updates.",
+      "Use mutate to update cached data after a create, update, or delete request.",
+      "Use conditional keys when the query depends on a value that may not be ready yet.",
     ],
-    code: `"use client";
+    codeBlocks: [
+      {
+        title: "Fetch API data with SWR",
+        code: `"use client";
 
 import useSWR from "swr";
 
@@ -553,6 +835,85 @@ export default function Profile({ userId }: { userId: string }) {
 
   return <p>Hello {data.name}</p>;
 }`,
+      },
+      {
+        title: "Use a conditional SWR key",
+        code: `"use client";
+
+import useSWR from "swr";
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+export default function TeamMembers({ teamId }: { teamId?: string }) {
+  const { data, isLoading } = useSWR(
+    teamId ? \`/api/teams/\${teamId}/members\` : null,
+    fetcher
+  );
+
+  if (!teamId) return <p>Select a team.</p>;
+  if (isLoading) return <p>Loading members...</p>;
+
+  return data.map((member: { id: string; name: string }) => (
+    <p key={member.id}>{member.name}</p>
+  ));
+}`,
+      },
+      {
+        title: "Update the SWR cache after a mutation",
+        code: `"use client";
+
+import useSWR from "swr";
+
+type Todo = {
+  id: string;
+  title: string;
+};
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+export default function TodoList() {
+  const { data: todos = [], mutate } = useSWR<Todo[]>("/api/todos", fetcher);
+
+  async function addTodo() {
+    const response = await fetch("/api/todos", {
+      body: JSON.stringify({ title: "Learn SWR" }),
+      method: "POST",
+    });
+    const createdTodo = await response.json();
+
+    mutate([...todos, createdTodo], { revalidate: false });
+  }
+
+  return (
+    <section>
+      <button onClick={addTodo}>Add todo</button>
+      {todos.map((todo) => (
+        <p key={todo.id}>{todo.title}</p>
+      ))}
+    </section>
+  );
+}`,
+      },
+      {
+        title: "Set shared SWR options with a provider",
+        code: `"use client";
+
+import { SWRConfig } from "swr";
+
+export function SwrProvider({ children }: { children: React.ReactNode }) {
+  return (
+    <SWRConfig
+      value={{
+        fetcher: (url: string) => fetch(url).then((res) => res.json()),
+        revalidateOnFocus: true,
+      }}
+    >
+      {children}
+    </SWRConfig>
+  );
+}`,
+      },
+    ],
   },
   {
     slug: "tanstack-query",
@@ -563,18 +924,37 @@ export default function Profile({ userId }: { userId: string }) {
       "TanStack Query manages async server state with query keys, query functions, cache lifetimes, and refetch behavior.",
       "Wrap client UI with QueryClientProvider, then call useQuery in Client Components.",
       "It is a strong fit for apps with many API-backed views, pagination, mutations, cache invalidation, and background refresh needs.",
+      "Keep QueryClient creation inside a Client Component provider so each browser session owns its cache.",
+      "Use useMutation with invalidateQueries when changed data should be fetched again.",
     ],
-    code: `"use client";
+    codeBlocks: [
+      {
+        title: "Create a TanStack Query provider",
+        code: `"use client";
 
 import {
   QueryClient,
   QueryClientProvider,
-  useQuery,
 } from "@tanstack/react-query";
+import { useState } from "react";
 
-const queryClient = new QueryClient();
+export function QueryProvider({ children }: { children: React.ReactNode }) {
+  const [queryClient] = useState(() => new QueryClient());
 
-function UserList() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      {children}
+    </QueryClientProvider>
+  );
+}`,
+      },
+      {
+        title: "Fetch data with useQuery",
+        code: `"use client";
+
+import { useQuery } from "@tanstack/react-query";
+
+export default function UserList() {
   const { data, isPending, error } = useQuery({
     queryKey: ["users"],
     queryFn: () => fetch("/api/users").then((res) => res.json()),
@@ -586,14 +966,70 @@ function UserList() {
   return data.map((user: { id: string; name: string }) => (
     <p key={user.id}>{user.name}</p>
   ));
-}
+}`,
+      },
+      {
+        title: "Use query keys with parameters",
+        code: `"use client";
 
-export default function UsersProvider() {
+import { useQuery } from "@tanstack/react-query";
+
+export default function ProjectTasks({ projectId }: { projectId: string }) {
+  const { data: tasks = [] } = useQuery({
+    queryKey: ["projects", projectId, "tasks"],
+    queryFn: () =>
+      fetch(\`/api/projects/\${projectId}/tasks\`).then((res) => res.json()),
+  });
+
+  return tasks.map((task: { id: string; title: string }) => (
+    <p key={task.id}>{task.title}</p>
+  ));
+}`,
+      },
+      {
+        title: "Create data with useMutation",
+        code: `"use client";
+
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+export default function CreateUserButton() {
+  const queryClient = useQueryClient();
+
+  const createUser = useMutation({
+    mutationFn: () =>
+      fetch("/api/users", {
+        body: JSON.stringify({ name: "New user" }),
+        method: "POST",
+      }).then((res) => res.json()),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["users"] });
+    },
+  });
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <UserList />
-    </QueryClientProvider>
+    <button disabled={createUser.isPending} onClick={() => createUser.mutate()}>
+      Create user
+    </button>
   );
 }`,
+      },
+      {
+        title: "Configure query freshness",
+        code: `"use client";
+
+import { useQuery } from "@tanstack/react-query";
+
+export default function Notifications() {
+  const { data: notifications = [] } = useQuery({
+    queryKey: ["notifications"],
+    queryFn: () => fetch("/api/notifications").then((res) => res.json()),
+    refetchInterval: 30_000,
+    staleTime: 10_000,
+  });
+
+  return <p>Unread: {notifications.length}</p>;
+}`,
+      },
+    ],
   },
 ];
