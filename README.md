@@ -150,6 +150,15 @@ Build for production:
 npm run build
 ```
 
+For static hosting, Next.js exports the site to the `out` folder. This project uses `trailingSlash: true`, so routes are exported as folders with `index.html` files, for example:
+
+```text
+out/features/index.html
+out/features/state-management/index.html
+```
+
+When hosting under `/NextJsSample` in IIS, copy the contents of `out` into the IIS `NextJsSample` folder and make sure `index.html` is enabled as a default document.
+
 Start the production server:
 
 ```bash
@@ -173,4 +182,3 @@ npm run start
 - Tailwind CSS dependency setup
 - App Router
 - CSS modules for shared UI components
-

@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
     images: { unoptimized: true }, // Pages can't run Next/Image optimizer
     basePath: `/${repo}`,
     assetPrefix: `/${repo}/`,
+    trailingSlash: true, // creates /route/index.html files for static hosts like IIS
   }),
 };
 
