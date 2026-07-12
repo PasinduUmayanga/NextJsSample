@@ -91,6 +91,7 @@ This is a small Next.js App Router routing playground.
 - Add `generateStaticParams` for static dynamic-route examples.
 - Prefer simple server components unless client hooks or browser APIs are needed.
 - Move repeated UI into shared components only after duplication appears.
+- Keep breadcrumb colors in `src/app/_components/app-nav.tsx` on the blue fade palette so new routes remain visually consistent.
 
 ## Commands
 

@@ -3,6 +3,22 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+const APP_COLORS = {
+  text: "#374151",
+  white: "#ffffff",
+};
+
+const BLUE_FADE_COLORS = [
+  "#1e40af",
+  "#1d4ed8",
+  "#2563eb",
+  "#3b82f6",
+  "#60a5fa",
+  "#93c5fd",
+  "#bfdbfe",
+  "#dbeafe",
+];
+
 export default function AppNav() {
   const pathname = usePathname();
   const pathParts = pathname.split("/").filter(Boolean);
@@ -64,16 +80,32 @@ export default function AppNav() {
         <ol style={styles.breadcrumbs}>
           {breadcrumbs.map((item, index) => {
             const isCurrent = index === breadcrumbs.length - 1;
+            const background =
+              BLUE_FADE_COLORS[index % BLUE_FADE_COLORS.length];
+            const isLight = index >= 5;
+            const crumbStyle = {
+              ...styles.crumb,
+              ...(index === 0 ? styles.firstCrumb : styles.middleCrumb),
+              ...(isCurrent ? styles.currentCrumb : {}),
+              background,
+              color: isLight ? APP_COLORS.text : APP_COLORS.white,
+            };
 
             return (
-              <li key={item.href} style={styles.breadcrumbItem}>
-                {index > 0 ? <span style={styles.separator}>/</span> : null}
+              <li
+                key={item.href}
+                style={{
+                  ...styles.breadcrumbItem,
+                  marginLeft: index === 0 ? 0 : -18,
+                  zIndex: breadcrumbs.length - index,
+                }}
+              >
                 {isCurrent ? (
-                  <span aria-current="page" style={styles.currentCrumb}>
+                  <span aria-current="page" style={crumbStyle}>
                     {item.label}
                   </span>
                 ) : (
-                  <Link href={item.href} style={styles.crumbLink}>
+                  <Link href={item.href} style={crumbStyle}>
                     {item.label}
                   </Link>
                 )}
@@ -127,37 +159,52 @@ const styles: Record<string, React.CSSProperties> = {
   },
   subNav: {
     borderTop: "1px solid #f3f4f6",
+    background:
+      "repeating-linear-gradient(135deg, #d1d5db 0, #d1d5db 1px, #e5e7eb 1px, #e5e7eb 18px)",
   },
   breadcrumbs: {
     alignItems: "center",
     display: "flex",
-    flexWrap: "wrap",
-    gap: 6,
+    flexWrap: "nowrap",
     listStyle: "none",
     margin: "0 auto",
     maxWidth: 1100,
-    padding: "8px 24px 10px",
+    overflowX: "auto",
+    padding: "8px 24px 9px",
     width: "100%",
   },
   breadcrumbItem: {
     alignItems: "center",
     display: "inline-flex",
-    gap: 6,
+    flex: "0 0 auto",
   },
-  crumbLink: {
-    color: "#2563eb",
-    fontSize: 13,
+  crumb: {
+    alignItems: "center",
+    border: "1px solid rgba(17, 24, 39, 0.14)",
+    boxShadow: "0 3px 8px rgba(15, 23, 42, 0.12)",
+    display: "inline-flex",
+    fontSize: 14,
     fontWeight: 800,
+    height: 38,
+    justifyContent: "center",
+    minWidth: 112,
+    overflow: "hidden",
+    padding: "0 28px 0 34px",
     textDecoration: "none",
+    textOverflow: "ellipsis",
+    textShadow: "0 1px 1px rgba(0, 0, 0, 0.18)",
+    whiteSpace: "nowrap",
+  },
+  firstCrumb: {
+    clipPath: "polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%)",
+    paddingLeft: 20,
+  },
+  middleCrumb: {
+    clipPath:
+      "polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%, 18px 50%)",
   },
   currentCrumb: {
-    color: "#111827",
-    fontSize: 13,
-    fontWeight: 800,
-  },
-  separator: {
-    color: "#9ca3af",
-    fontSize: 13,
-    fontWeight: 800,
+    outline: "2px solid rgba(255, 255, 255, 0.85)",
+    outlineOffset: -4,
   },
 };
