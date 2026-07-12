@@ -14,30 +14,37 @@ const MENU: MenuSection[] = [
   {
     group: "Single Routing",
     color: "#2563eb",
-    description: "One folder creates one page URL, such as /about or /contact.",
+    description:
+      "One folder creates one page URL, such as /features/routing-types/app-routing/about.",
     links: [
-      { href: "/about", label: "About", detail: "src/app/about/page.tsx" },
       {
-        href: "/contact",
+        href: "/features/routing-types/app-routing/about",
+        label: "About",
+        detail: "src/app/features/routing-types/app-routing/about/page.tsx",
+      },
+      {
+        href: "/features/routing-types/app-routing/contact",
         label: "Contact",
-        detail: "src/app/contact/page.tsx",
+        detail: "src/app/features/routing-types/app-routing/contact/page.tsx",
       },
     ],
   },
   {
     group: "Nested Routes",
     color: "#059669",
-    description: "Folders inside folders create deeper paths, such as /dashboard/analytics.",
+    description:
+      "Folders inside folders create deeper paths, such as /features/routing-types/app-routing/dashboard/analytics.",
     links: [
       {
-        href: "/dashboard",
+        href: "/features/routing-types/app-routing/dashboard",
         label: "Dashboard",
-        detail: "src/app/dashboard/page.tsx",
+        detail: "src/app/features/routing-types/app-routing/dashboard/page.tsx",
       },
       {
-        href: "/dashboard/analytics",
+        href: "/features/routing-types/app-routing/dashboard/analytics",
         label: "Dashboard -> Analytics",
-        detail: "src/app/dashboard/analytics/page.tsx",
+        detail:
+          "src/app/features/routing-types/app-routing/dashboard/analytics/page.tsx",
       },
     ],
   },
@@ -46,16 +53,20 @@ const MENU: MenuSection[] = [
     color: "#7c3aed",
     description: "Bracket names like [slug] read changing URL values as params.",
     links: [
-      { href: "/blog", label: "Blog main page", detail: "src/app/blog/page.tsx" },
       {
-        href: "/blog/1",
-        label: "Blog post 1",
-        detail: "src/app/blog/[slug]/page.tsx",
+        href: "/features/routing-types/app-routing/blog",
+        label: "Blog main page",
+        detail: "src/app/features/routing-types/app-routing/blog/page.tsx",
       },
       {
-        href: "/blog/2",
+        href: "/features/routing-types/app-routing/blog/1",
+        label: "Blog post 1",
+        detail: "src/app/features/routing-types/app-routing/blog/[slug]/page.tsx",
+      },
+      {
+        href: "/features/routing-types/app-routing/blog/2",
         label: "Blog post 2",
-        detail: "src/app/blog/[slug]/page.tsx",
+        detail: "src/app/features/routing-types/app-routing/blog/[slug]/page.tsx",
       },
     ],
   },
@@ -65,19 +76,19 @@ const MENU: MenuSection[] = [
     description: "Catch-all routes match multiple path parts with [...slug] or [[...slug]].",
     links: [
       {
-        href: "/docs/getting-started/installation",
+        href: "/features/routing-types/app-routing/docs/getting-started/installation",
         label: "Required Catch-All ([...slug])",
-        detail: "src/app/docs/[...slug]/page.tsx",
+        detail: "src/app/features/routing-types/app-routing/docs/[...slug]/page.tsx",
       },
       {
-        href: "/help",
+        href: "/features/routing-types/app-routing/help",
         label: "Optional Catch-All ([[...slug]]) - none",
-        detail: "src/app/help/[[...slug]]/page.tsx",
+        detail: "src/app/features/routing-types/app-routing/help/[[...slug]]/page.tsx",
       },
       {
-        href: "/help/contact/support",
+        href: "/features/routing-types/app-routing/help/contact/support",
         label: "Optional Catch-All ([[...slug]]) - with segments",
-        detail: "src/app/help/[[...slug]]/page.tsx",
+        detail: "src/app/features/routing-types/app-routing/help/[[...slug]]/page.tsx",
       },
     ],
   },
@@ -89,7 +100,7 @@ export default function RoutingsPage() {
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <Link href="/features/routingtypes" style={styles.backLink}>
+        <Link href="/features/routing-types" style={styles.backLink}>
           Back to routing types
         </Link>
         <h1 style={styles.title}>App Routing Examples</h1>

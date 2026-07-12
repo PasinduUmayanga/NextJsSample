@@ -4,20 +4,23 @@ export default function PageRoutingSample() {
   return (
     <main style={styles.page}>
       <section style={styles.panel}>
-        <Link href="/features/routingtypes" style={styles.backLink}>
+        <Link href="/features/routing-types" style={styles.backLink}>
           Back to routing types
         </Link>
         <h1 style={styles.title}>Page Routing Sample</h1>
         <p style={styles.description}>
-          This page is rendered from `src/app/features/page-routing/page.tsx`.
+          This page is rendered from{" "}
+          `src/app/features/routing-types/page-routing/page.tsx`.
           In the App Router, folders become URL segments and `page.tsx` makes
           the segment publicly accessible.
         </p>
         <div style={styles.example}>
           <div style={styles.label}>File path</div>
-          <code style={styles.code}>src/app/features/page-routing/page.tsx</code>
+          <code style={styles.code}>
+            src/app/features/routing-types/page-routing/page.tsx
+          </code>
           <div style={styles.label}>Browser URL</div>
-          <code style={styles.code}>/features/page-routing</code>
+          <code style={styles.code}>/features/routing-types/page-routing</code>
         </div>
       </section>
     </main>

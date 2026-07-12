@@ -11,28 +11,44 @@ This is a small Next.js App Router routing playground.
 ## Structure
 
 - `src/app/layout.tsx`: root HTML shell, fonts, metadata, global CSS import.
-- `src/app/page.tsx`: home page with link to routing examples.
-- `src/app/features/routingtypes/page.tsx`: routing type selector page.
-- `src/app/features/app-routing/page.tsx`: client-side route menu using `usePathname`.
-- `src/app/features/page-routing/page.tsx`: basic page routing sample.
+- `src/app/page.tsx`: home page with link to the features hub.
+- `src/app/setting-up-nextjs/page.tsx`: setup guide for creating and running a Next.js app.
+- `src/app/features/page.tsx`: feature selector page.
+- `src/app/features/routing-types/page.tsx`: routing type selector page.
+- `src/app/features/component-types/page.tsx`: component type sample page.
+- `src/app/features/component-types/component-features-table.tsx`: component comparison table.
+- `src/app/features/component-types/server-components/page.tsx`: server component detail page.
+- `src/app/features/component-types/server-components/server-component-sample.tsx`: server component sample.
+- `src/app/features/component-types/client-components/page.tsx`: client component detail page.
+- `src/app/features/component-types/client-components/client-component-sample.tsx`: client component sample.
+- `src/app/features/component-types/shared-ui-components/page.tsx`: shared UI detail page.
+- `src/app/features/component-types/shared-ui-components/shared-ui-card.tsx`: reusable shared UI sample.
+- `src/app/features/routing-types/app-routing/page.tsx`: client-side route menu using `usePathname`.
+- `src/app/features/routing-types/page-routing/page.tsx`: basic page routing sample.
 - `src/app/globals.css`: global styles.
 - `public/`: static assets.
 
 ## Routes
 
-- `/about`: `src/app/about/page.tsx`
-- `/contact`: `src/app/contact/page.tsx`
-- `/features/routingtypes`: routing type selector page
-- `/features/page-routing`: page routing sample
-- `/features/app-routing`: route playground menu
-- `/dashboard`: `src/app/dashboard/page.tsx`
-- `/dashboard/analytics`: `src/app/dashboard/analytics/page.tsx`
-- `/blog`: `src/app/blog/page.tsx`
-- `/blog/[slug]`: dynamic route with `generateStaticParams`
-- `/users/[userId]`: dynamic route with `generateStaticParams`
-- `/users/[userId]/posts/[postId]`: nested dynamic route with `generateStaticParams`
-- `/docs/[...slug]`: required catch-all route with `generateStaticParams`
-- `/help/[[...slug]]`: optional catch-all route with `generateStaticParams`
+- `/features`: feature selector page
+- `/setting-up-nextjs`: setup guide for creating and running a Next.js app
+- `/features/routing-types`: routing type selector page
+- `/features/component-types`: component type sample page
+- `/features/component-types/server-components`: server component detail page
+- `/features/component-types/client-components`: client component detail page
+- `/features/component-types/shared-ui-components`: shared UI component detail page
+- `/features/routing-types/page-routing`: page routing sample
+- `/features/routing-types/app-routing`: route playground menu
+- `/features/routing-types/app-routing/about`: single route sample
+- `/features/routing-types/app-routing/contact`: single route sample
+- `/features/routing-types/app-routing/dashboard`: nested route sample
+- `/features/routing-types/app-routing/dashboard/analytics`: nested route sample
+- `/features/routing-types/app-routing/blog`: blog route index sample
+- `/features/routing-types/app-routing/blog/[slug]`: dynamic route with `generateStaticParams`
+- `/features/routing-types/app-routing/users/[userId]`: dynamic route with `generateStaticParams`
+- `/features/routing-types/app-routing/users/[userId]/posts/[postId]`: nested dynamic route with `generateStaticParams`
+- `/features/routing-types/app-routing/docs/[...slug]`: required catch-all route with `generateStaticParams`
+- `/features/routing-types/app-routing/help/[[...slug]]`: optional catch-all route with `generateStaticParams`
 
 ## Conventions
 

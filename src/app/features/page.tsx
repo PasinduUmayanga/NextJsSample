@@ -1,49 +1,48 @@
 import Link from "next/link";
 
-const ROUTING_TYPES = [
+const FEATURES = [
   {
-    href: "/features/app-routing",
-    title: "App Routing",
+    href: "/features/routing-types",
+    title: "Routing",
     description:
-      "Uses the modern Next.js App Router. Routes are created inside src/app with page.tsx, layout.tsx, dynamic segments, and nested folders.",
-    bestFor: "Best for new Next.js apps.",
+      "Explore App Router examples, page routing, dynamic routes, and catch-all segments.",
     color: "#2563eb",
   },
   {
-    href: "/features/page-routing",
-    title: "Page Routing",
+    href: "/features/component-types",
+    title: "Component",
     description:
-      "Shows the basic idea of page-based routing: a file path maps directly to a browser URL.",
-    bestFor: "Best for learning file-to-URL mapping.",
-    color: "#059669",
+      "Compare server components, client components, and shared UI components.",
+    color: "#7c3aed",
   },
 ];
 
-export default function RoutingTypesPage() {
+export default function FeaturesPage() {
   return (
     <main style={styles.page}>
       <section style={styles.content}>
         <Link href="/" style={styles.backLink}>
           Back to home
         </Link>
-        <h1 style={styles.title}>Routing Types</h1>
+        <h1 style={styles.title}>Features</h1>
         <p style={styles.description}>
-          Choose which routing concept you want to explore.
+          Choose a Next.js concept to explore with small examples.
         </p>
         <div style={styles.grid}>
-          {ROUTING_TYPES.map((type) => (
+          {FEATURES.map((feature) => (
             <Link
-              href={type.href}
-              key={type.href}
+              href={feature.href}
+              key={feature.href}
               style={{
                 ...styles.cardButton,
-                borderColor: type.color,
-                color: type.color,
+                borderColor: feature.color,
+                color: feature.color,
               }}
             >
-              <span style={styles.buttonTitle}>{type.title}</span>
-              <span style={styles.buttonDescription}>{type.description}</span>
-              <span style={styles.buttonHint}>{type.bestFor}</span>
+              <span style={styles.buttonTitle}>{feature.title}</span>
+              <span style={styles.buttonDescription}>
+                {feature.description}
+              </span>
             </Link>
           ))}
         </div>
@@ -113,11 +112,5 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: 15,
     lineHeight: 1.5,
     marginTop: 10,
-  },
-  buttonHint: {
-    color: "#111827",
-    fontSize: 13,
-    fontWeight: 700,
-    marginTop: 14,
   },
 };
