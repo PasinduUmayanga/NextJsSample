@@ -11,6 +11,7 @@ This is a small Next.js App Router routing playground.
 ## Structure
 
 - `src/app/layout.tsx`: root HTML shell, fonts, metadata, global CSS import.
+- `src/app/_components/code-block.tsx`: shared IDE-like code block and syntax color styling.
 - `src/app/page.tsx`: home page with link to the features hub.
 - `src/app/setting-up-nextjs/page.tsx`: setup guide for creating and running a Next.js app.
 - `src/app/features/page.tsx`: feature selector page.

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CodeBlock from "@/app/_components/code-block";
 import ServerComponentSample from "./server-component-sample";
 
 const SAMPLE_CODE = `// Server Component: no "use client" directive is needed.
@@ -31,9 +32,7 @@ export default function ServerComponentsPage() {
         </InfoBox>
         <ServerComponentSample />
         <p style={styles.sampleLabel}>Sample:</p>
-        <pre style={styles.codeBlock}>
-          <code>{SAMPLE_CODE}</code>
-        </pre>
+        <CodeBlock>{SAMPLE_CODE}</CodeBlock>
       </section>
     </main>
   );
@@ -108,16 +107,5 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: 13,
     fontWeight: 800,
     margin: "14px 0 0",
-  },
-  codeBlock: {
-    background: "#111827",
-    borderRadius: 8,
-    color: "#f9fafb",
-    fontSize: 13,
-    lineHeight: 1.5,
-    margin: "8px 0 0",
-    overflowX: "auto",
-    padding: 14,
-    whiteSpace: "pre",
   },
 };

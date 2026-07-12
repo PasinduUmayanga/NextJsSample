@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CodeBlock from "@/app/_components/code-block";
 
 export default function PageRoutingSample() {
   return (
@@ -16,11 +17,11 @@ export default function PageRoutingSample() {
         </p>
         <div style={styles.example}>
           <div style={styles.label}>File path</div>
-          <code style={styles.code}>
+          <CodeBlock compact>
             src/app/features/routing-types/page-routing/page.tsx
-          </code>
+          </CodeBlock>
           <div style={styles.label}>Browser URL</div>
-          <code style={styles.code}>/features/routing-types/page-routing</code>
+          <CodeBlock compact>/features/routing-types/page-routing</CodeBlock>
         </div>
       </section>
     </main>
@@ -75,14 +76,5 @@ const styles: Record<string, React.CSSProperties> = {
     fontWeight: 800,
     margin: "8px 0 6px",
     textTransform: "uppercase",
-  },
-  code: {
-    background: "#111827",
-    borderRadius: 6,
-    color: "#ffffff",
-    display: "block",
-    fontSize: 14,
-    overflowX: "auto",
-    padding: "10px 12px",
   },
 };

@@ -10,6 +10,7 @@ export default function AppRouterFetchPage() {
     >
       <InfoPanel
         code={`export default async function Page() {
+  // This fetch runs on the server before the page renders.
   const res = await fetch("https://api.example.com/posts");
   const posts = await res.json();
 

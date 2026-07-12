@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CodeBlock from "@/app/_components/code-block";
 
 type Card = {
   description: string;
@@ -53,9 +54,7 @@ export function InfoPanel({
   return (
     <section style={styles.panel}>
       <p style={styles.panelText}>{children}</p>
-      <pre style={styles.codeBlock}>
-        <code>{code}</code>
-      </pre>
+      <CodeBlock>{code}</CodeBlock>
     </section>
   );
 }
@@ -135,16 +134,5 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: 16,
     lineHeight: 1.6,
     margin: "0 0 14px",
-  },
-  codeBlock: {
-    background: "#111827",
-    borderRadius: 8,
-    color: "#f9fafb",
-    fontSize: 13,
-    lineHeight: 1.5,
-    margin: 0,
-    overflowX: "auto",
-    padding: 14,
-    whiteSpace: "pre",
   },
 };

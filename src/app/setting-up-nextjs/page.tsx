@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CodeBlock from "@/app/_components/code-block";
 
 const SETUP_STEPS = [
   {
@@ -48,9 +49,7 @@ export default function SettingUpNextJsPage() {
             <section key={step.title} style={styles.step}>
               <h2 style={styles.stepTitle}>{step.title}</h2>
               <p style={styles.stepDescription}>{step.description}</p>
-              <pre style={styles.codeBlock}>
-                <code>{step.command}</code>
-              </pre>
+              <CodeBlock>{step.command}</CodeBlock>
             </section>
           ))}
         </div>
@@ -117,16 +116,5 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: 15,
     lineHeight: 1.5,
     margin: "8px 0 12px",
-  },
-  codeBlock: {
-    background: "#111827",
-    borderRadius: 8,
-    color: "#f9fafb",
-    fontSize: 14,
-    lineHeight: 1.5,
-    margin: 0,
-    overflowX: "auto",
-    padding: 14,
-    whiteSpace: "pre",
   },
 };
