@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./app-nav.module.css";
@@ -64,30 +65,16 @@ export default function AppNav() {
             </svg>
           </Link>
         ) : null}
-        <Link
-          href="/"
-          aria-label="Home"
-          title="Home"
-          className={styles.iconButton}
-        >
-          <svg
-            aria-hidden="true"
-            fill="none"
-            height="20"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            width="20"
-          >
-            <path d="m3 11 9-8 9 8" />
-            <path d="M5 10v10h14V10" />
-            <path d="M9 20v-6h6v6" />
-          </svg>
-        </Link>
         <Link href="/" className={styles.brand}>
-          Next.js Learning Hub
+          <Image
+            src="/app-logo.png"
+            alt=""
+            aria-hidden="true"
+            className={styles.logo}
+            height={40}
+            width={40}
+          />
+          <span>Next.js Learning Hub</span>
         </Link>
       </nav>
       <nav aria-label="Current navigation path" className={styles.subNav}>

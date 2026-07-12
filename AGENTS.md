@@ -16,6 +16,9 @@ This is a small Next.js App Router routing playground.
 - `src/app/_components/code-block.tsx`: shared IDE-like code block and syntax color styling.
 - `src/app/_components/code-block.module.css`: styles for shared code block layout.
 - `src/app/not-found.tsx`: custom 404 page for unmatched routes.
+- `public/app-logo.png`: application logo used by navbar and home page.
+- `src/app/icon.png`: browser tab/title bar icon generated from the application logo.
+- `src/app/apple-icon.png`: Apple touch icon generated from the application logo.
 - `src/app/about/page.tsx`: about page for the learning app.
 - `src/app/page.tsx`: home page with link to the features hub.
 - `src/app/setting-up-nextjs/page.tsx`: setup guide for creating and running a Next.js app.
@@ -28,6 +31,12 @@ This is a small Next.js App Router routing playground.
 - `src/app/features/mutating-data/page.tsx`: mutating data topic selector page.
 - `src/app/features/mutating-data/mutation-samples.ts`: shared mutation topic descriptions and code samples.
 - `src/app/features/mutating-data/[slug]/page.tsx`: mutating data topic detail page.
+- `src/app/features/state-management/page.tsx`: state management topic selector page.
+- `src/app/features/state-management/state-samples.ts`: shared state management topic descriptions and code samples.
+- `src/app/features/state-management/[slug]/page.tsx`: state management topic detail page.
+- `src/app/features/image-font-optimization/page.tsx`: image and font optimization topic selector page.
+- `src/app/features/image-font-optimization/optimization-samples.ts`: shared image/font optimization descriptions and code samples.
+- `src/app/features/image-font-optimization/[slug]/page.tsx`: image and font optimization topic detail page.
 - `src/app/features/data-fetching/app-router/page.tsx`: App Router data-fetching categories.
 - `src/app/features/data-fetching/pages-router/page.tsx`: Pages Router data-fetching categories.
 - `src/app/features/routing-types/page.tsx`: routing type selector page.
@@ -71,6 +80,27 @@ This is a small Next.js App Router routing playground.
 - `/features/mutating-data/pending-states`: pending states mutation sample
 - `/features/mutating-data/optimistic-updates`: optimistic updates mutation sample
 - `/features/mutating-data/revalidation-after-mutations`: revalidation after mutations sample
+- `/features/state-management`: state management topic selector page
+- `/features/state-management/url-search-parameters`: URL search parameters state sample
+- `/features/state-management/react-usestate`: React useState sample
+- `/features/state-management/react-context`: React Context sample
+- `/features/state-management/server-state`: server state sample
+- `/features/state-management/cookies`: cookies state sample
+- `/features/state-management/localstorage`: localStorage state sample
+- `/features/state-management/zustand`: Zustand state sample
+- `/features/state-management/redux-toolkit`: Redux Toolkit state sample
+- `/features/state-management/swr`: SWR state sample
+- `/features/state-management/tanstack-query`: TanStack Query state sample
+- `/features/image-font-optimization`: image and font optimization topic selector page
+- `/features/image-font-optimization/next-image`: next/image sample
+- `/features/image-font-optimization/local-images`: local images sample
+- `/features/image-font-optimization/remote-images`: remote images sample
+- `/features/image-font-optimization/responsive-image-sizes`: responsive image sizes sample
+- `/features/image-font-optimization/image-placeholders`: image placeholders sample
+- `/features/image-font-optimization/image-loading-priority`: image loading priority sample
+- `/features/image-font-optimization/next-font`: next/font sample
+- `/features/image-font-optimization/local-fonts`: local fonts sample
+- `/features/image-font-optimization/google-fonts`: Google fonts sample
 - `/features/data-fetching`: data fetching router selector page
 - `/features/data-fetching/app-router`: App Router data-fetching categories
 - `/features/data-fetching/app-router/server-side`: App Router server-side fetching

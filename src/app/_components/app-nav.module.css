@@ -32,22 +32,35 @@
 }
 
 .brand {
+  align-items: center;
   color: #111827;
+  display: inline-flex;
   font-size: 18px;
   font-weight: 900;
+  gap: 10px;
   line-height: 1.2;
   text-decoration: none;
 }
 
+.logo {
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
+  height: 40px;
+  object-fit: cover;
+  width: 40px;
+}
+
 .subNav {
-  background: repeating-linear-gradient(
-    135deg,
-    #d1d5db 0,
-    #d1d5db 1px,
-    #e5e7eb 1px,
-    #e5e7eb 18px
-  );
-  border-top: 1px solid #f3f4f6;
+  background:
+    linear-gradient(90deg, rgba(219, 234, 254, 0.78), rgba(243, 244, 246, 0.96)),
+    repeating-linear-gradient(
+      135deg,
+      rgba(37, 99, 235, 0.08) 0,
+      rgba(37, 99, 235, 0.08) 1px,
+      transparent 1px,
+      transparent 18px
+    );
+  border-top: 1px solid #dbeafe;
 }
 
 .breadcrumbs {

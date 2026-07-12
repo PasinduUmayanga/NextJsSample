@@ -36,6 +36,20 @@ const FEATURES = [
       "Learn Server Actions, form mutations, validation, optimistic UI, and revalidation.",
     color: "#059669",
   },
+  {
+    href: "/features/state-management",
+    title: "State Management",
+    description:
+      "Learn URL state, React state, cookies, localStorage, Zustand, Redux Toolkit, SWR, and TanStack Query.",
+    color: "#7c3aed",
+  },
+  {
+    href: "/features/image-font-optimization",
+    title: "Image and Font Optimization",
+    description:
+      "Learn next/image, responsive images, placeholders, priority loading, and next/font.",
+    color: "#2563eb",
+  },
 ];
 
 export default function FeaturesPage() {
