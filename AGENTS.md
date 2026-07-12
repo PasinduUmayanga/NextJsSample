@@ -11,7 +11,8 @@ This is a small Next.js App Router routing playground.
 ## Structure
 
 - `src/app/layout.tsx`: root HTML shell, fonts, metadata, global CSS import.
-- `src/app/page.tsx`: client-side route menu using `usePathname`.
+- `src/app/page.tsx`: home page with link to routing examples.
+- `src/app/features/routings/page.tsx`: client-side route menu using `usePathname`.
 - `src/app/globals.css`: global styles.
 - `public/`: static assets.
 
@@ -19,6 +20,7 @@ This is a small Next.js App Router routing playground.
 
 - `/about`: `src/app/about/page.tsx`
 - `/contact`: `src/app/contact/page.tsx`
+- `/features/routings`: route playground menu
 - `/dashboard`: `src/app/dashboard/page.tsx`
 - `/dashboard/analytics`: `src/app/dashboard/analytics/page.tsx`
 - `/blog`: `src/app/blog/page.tsx`

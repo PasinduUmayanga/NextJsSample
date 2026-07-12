@@ -1,119 +1,60 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
-type MenuSection = {
-  group: string;
-  links: { href: string; label: string }[];
-};
-
-const MENU: MenuSection[] = [
-  {
-    group: "Single Routing",
-    links: [
-      { href: "/about", label: "1) About" },
-      { href: "/contact", label: "2) Contact" },
-    ],
-  },
-  {
-    group: "Nested Routes",
-    links: [
-      {
-        href: "/dashboard",
-        label: "3) Dashboard",
-      },
-      {
-        href: "/dashboard/analytics",
-        label: "4) Dashboard -> Analytics",
-      },
-    ],
-  },
-  {
-    group: "Dynamic Routes",
-    links: [
-      { href: "/blog", label: "5) Blog main page" },
-      { href: "/blog/1", label: "6) Blog post 1" },
-      { href: "/blog/2", label: "7) Blog post 2" },
-    ],
-  },
-  {
-    group: "Catch-all Segments",
-    links: [
-      {
-        href: "/routing/catch-all-required/a/b/c",
-        label: "5) Required Catch-All ([...slug])",
-      },
-      {
-        href: "/routing/catch-all-optional",
-        label: "6) Optional Catch-All ([[...slug]]) – none",
-      },
-      {
-        href: "/routing/catch-all-optional/a/b",
-        label: "6) Optional Catch-All ([[...slug]]) – with segments",
-      },
-    ],
-  },
-];
-
-export default function LearnMenu() {
-  const pathname = usePathname();
-
+export default function HomePage() {
   return (
-    <nav style={styles.nav}>
-      <h2 style={styles.title}>Next.js Routing Playground</h2>
-      {MENU.map((section) => (
-        <div key={section.group} style={styles.section}>
-          <div style={styles.groupTitle}>{section.group}</div>
-          <ul style={styles.ul}>
-            {section.links.map((item) => {
-              const active = pathname === item.href;
-              return (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    style={{
-                      ...styles.link,
-                      ...(active ? styles.linkActive : {}),
-                    }}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      ))}
-    </nav>
+    <main style={styles.page}>
+      <section style={styles.content}>
+        <h1 style={styles.title}>Next.js Sample</h1>
+        <p style={styles.description}>
+          Explore examples for single routes, nested routes, dynamic routes,
+          and catch-all segments.
+        </p>
+        <Link href="/features/routings" style={styles.button}>
+          Open routing examples
+        </Link>
+      </section>
+    </main>
   );
 }
 
 const styles: Record<string, React.CSSProperties> = {
-  nav: {
-    borderRight: "1px solid #e5e7eb",
-    padding: "1rem",
-    minWidth: 240,
-    position: "sticky",
-    top: 0,
-    height: "100vh",
-    overflowY: "auto",
+  page: {
+    alignItems: "center",
+    background: "#f3f4f6",
+    display: "flex",
+    justifyContent: "center",
+    minHeight: "100vh",
+    padding: 24,
   },
-  title: { margin: 0, fontSize: 18, fontWeight: 600 },
-  section: { marginTop: 16 },
-  groupTitle: {
-    fontSize: 12,
-    fontWeight: 600,
-    color: "#6b7280",
-    textTransform: "uppercase",
+  content: {
+    maxWidth: 560,
+    textAlign: "center",
   },
-  ul: { listStyle: "none", margin: "8px 0 0", padding: 0 },
-  link: {
-    display: "block",
-    padding: "6px 8px",
-    borderRadius: 6,
-    textDecoration: "none",
+  title: {
     color: "#111827",
+    fontSize: 40,
+    fontWeight: 800,
+    margin: 0,
   },
-  linkActive: { background: "#f3f4f6", fontWeight: 600 },
+  description: {
+    color: "#4b5563",
+    fontSize: 18,
+    lineHeight: 1.6,
+    margin: "16px 0 24px",
+  },
+  button: {
+    alignItems: "center",
+    background: "#2563eb",
+    border: "1px solid #1d4ed8",
+    borderRadius: 8,
+    boxShadow: "0 10px 18px rgba(37, 99, 235, 0.22)",
+    color: "#ffffff",
+    display: "inline-flex",
+    fontSize: 16,
+    fontWeight: 700,
+    justifyContent: "center",
+    minHeight: 44,
+    padding: "12px 18px",
+    textDecoration: "none",
+  },
 };
