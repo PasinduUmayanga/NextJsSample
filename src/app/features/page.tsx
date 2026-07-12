@@ -29,6 +29,13 @@ const FEATURES = [
       "Practice links, router hooks, redirects, route params, query params, and prefetching.",
     color: "#0891b2",
   },
+  {
+    href: "/features/mutating-data",
+    title: "Mutating Data",
+    description:
+      "Learn Server Actions, form mutations, validation, optimistic UI, and revalidation.",
+    color: "#059669",
+  },
 ];
 
 export default function FeaturesPage() {

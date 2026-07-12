@@ -25,6 +25,9 @@ This is a small Next.js App Router routing playground.
 - `src/app/features/navigation/page.tsx`: navigation topic selector page.
 - `src/app/features/navigation/navigation-samples.ts`: shared navigation topic descriptions and code samples.
 - `src/app/features/navigation/[slug]/page.tsx`: navigation topic detail page.
+- `src/app/features/mutating-data/page.tsx`: mutating data topic selector page.
+- `src/app/features/mutating-data/mutation-samples.ts`: shared mutation topic descriptions and code samples.
+- `src/app/features/mutating-data/[slug]/page.tsx`: mutating data topic detail page.
 - `src/app/features/data-fetching/app-router/page.tsx`: App Router data-fetching categories.
 - `src/app/features/data-fetching/pages-router/page.tsx`: Pages Router data-fetching categories.
 - `src/app/features/routing-types/page.tsx`: routing type selector page.
@@ -56,6 +59,18 @@ This is a small Next.js App Router routing playground.
 - `/features/navigation/query-parameters`: query parameters navigation sample
 - `/features/navigation/prefetching`: prefetching navigation sample
 - `/features/navigation/client-side-navigation`: client-side navigation sample
+- `/features/mutating-data`: mutating data topic selector page
+- `/features/mutating-data/server-functions`: Server Functions mutation sample
+- `/features/mutating-data/server-actions`: Server Actions mutation sample
+- `/features/mutating-data/use-server-directive`: use server directive mutation sample
+- `/features/mutating-data/form-submissions`: form submissions mutation sample
+- `/features/mutating-data/creating-records`: creating records mutation sample
+- `/features/mutating-data/updating-records`: updating records mutation sample
+- `/features/mutating-data/deleting-records`: deleting records mutation sample
+- `/features/mutating-data/form-validation`: form validation mutation sample
+- `/features/mutating-data/pending-states`: pending states mutation sample
+- `/features/mutating-data/optimistic-updates`: optimistic updates mutation sample
+- `/features/mutating-data/revalidation-after-mutations`: revalidation after mutations sample
 - `/features/data-fetching`: data fetching router selector page
 - `/features/data-fetching/app-router`: App Router data-fetching categories
 - `/features/data-fetching/app-router/server-side`: App Router server-side fetching
