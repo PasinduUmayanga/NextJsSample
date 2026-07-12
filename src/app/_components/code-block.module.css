@@ -1,0 +1,21 @@
+.block {
+  background: #011627;
+  border: 1px solid #1d3b53;
+  border-radius: 8px;
+  color: #d6deeb;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 8px 0 0;
+  overflow-x: auto;
+  padding: 14px;
+  white-space: pre;
+}
+
+.compact {
+  font-size: 14px;
+  margin: 0;
+  padding: 10px 12px;
+}

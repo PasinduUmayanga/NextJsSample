@@ -3,8 +3,6 @@ import { InfoPanel, PageShell } from "../../../_components";
 export default function PagesRouterCsrTanStackQueryPage() {
   return (
     <PageShell
-      backHref="/features/data-fetching/pages-router/client-side-rendering"
-      backText="Back to CSR"
       description="TanStack Query can manage client-side server-state in Pages Router apps."
       title="CSR with TanStack Query"
     >

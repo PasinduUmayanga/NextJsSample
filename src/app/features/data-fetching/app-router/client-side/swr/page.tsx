@@ -3,8 +3,6 @@ import { InfoPanel, PageShell } from "../../../_components";
 export default function AppRouterSwrPage() {
   return (
     <PageShell
-      backHref="/features/data-fetching/app-router/client-side"
-      backText="Back to client-side fetching"
       description="SWR is a client data-fetching library for caching and revalidation."
       title="Client Fetching with SWR"
     >

@@ -16,8 +16,6 @@ const STREAMING_TYPES = [
 export default function AppRouterStreamingPage() {
   return (
     <PageShell
-      backHref="/features/data-fetching/app-router"
-      backText="Back to App Router data fetching"
       description="Streaming lets users see useful UI while slower data or route segments finish."
       title="Streaming"
     >

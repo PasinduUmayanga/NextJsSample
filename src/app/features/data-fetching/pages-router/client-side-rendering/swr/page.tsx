@@ -3,8 +3,6 @@ import { InfoPanel, PageShell } from "../../../_components";
 export default function PagesRouterCsrSwrPage() {
   return (
     <PageShell
-      backHref="/features/data-fetching/pages-router/client-side-rendering"
-      backText="Back to CSR"
       description="SWR is commonly used in Pages Router apps for client-side fetching."
       title="CSR with SWR"
     >

@@ -8,14 +8,10 @@ type Card = {
 };
 
 export function PageShell({
-  backHref,
-  backText,
   children,
   description,
   title,
 }: Readonly<{
-  backHref: string;
-  backText: string;
   children: React.ReactNode;
   description: string;
   title: string;

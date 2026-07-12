@@ -3,8 +3,6 @@ import { InfoPanel, PageShell } from "../../../_components";
 export default function PagesRouterCsrUseEffectPage() {
   return (
     <PageShell
-      backHref="/features/data-fetching/pages-router/client-side-rendering"
-      backText="Back to CSR"
       description="useEffect fetches data in the browser after the Pages Router page loads."
       title="CSR with useEffect"
     >

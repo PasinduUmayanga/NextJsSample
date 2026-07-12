@@ -26,8 +26,6 @@ const PAGES_ROUTER_TYPES = [
 export default function PagesRouterDataFetchingPage() {
   return (
     <PageShell
-      backHref="/features/data-fetching"
-      backText="Back to data fetching"
       description="Pages Router data fetching uses special page exports for pre-rendering and request-time rendering."
       title="Pages Router Data Fetching"
     >

@@ -21,8 +21,6 @@ const CSR_TYPES = [
 export default function ClientSideRenderingPage() {
   return (
     <PageShell
-      backHref="/features/data-fetching/pages-router"
-      backText="Back to Pages Router data fetching"
       description="CSR fetches data after the page loads in the browser."
       title="Client-Side Rendering - CSR"
     >

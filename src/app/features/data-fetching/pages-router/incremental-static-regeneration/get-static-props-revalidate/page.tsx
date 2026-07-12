@@ -3,8 +3,6 @@ import { InfoPanel, PageShell } from "../../../_components";
 export default function GetStaticPropsRevalidatePage() {
   return (
     <PageShell
-      backHref="/features/data-fetching/pages-router/incremental-static-regeneration"
-      backText="Back to ISR"
       description="ISR uses getStaticProps with revalidate to refresh static pages over time."
       title="getStaticProps() with revalidate"
     >

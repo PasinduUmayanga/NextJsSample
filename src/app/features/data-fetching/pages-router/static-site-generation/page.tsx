@@ -3,8 +3,6 @@ import { CardGrid, PageShell } from "../../_components";
 export default function StaticSiteGenerationPage() {
   return (
     <PageShell
-      backHref="/features/data-fetching/pages-router"
-      backText="Back to Pages Router data fetching"
       description="SSG builds pages ahead of time for fast static delivery."
       title="Static Site Generation - SSG"
     >

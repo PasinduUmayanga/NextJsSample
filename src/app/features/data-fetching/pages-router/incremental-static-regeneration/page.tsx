@@ -3,8 +3,6 @@ import { CardGrid, PageShell } from "../../_components";
 export default function IncrementalStaticRegenerationPage() {
   return (
     <PageShell
-      backHref="/features/data-fetching/pages-router"
-      backText="Back to Pages Router data fetching"
       description="ISR keeps static pages fast while allowing background regeneration."
       title="Incremental Static Regeneration - ISR"
     >

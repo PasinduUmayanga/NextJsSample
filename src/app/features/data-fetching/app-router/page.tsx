@@ -21,8 +21,6 @@ const APP_ROUTER_TYPES = [
 export default function AppRouterDataFetchingPage() {
   return (
     <PageShell
-      backHref="/features/data-fetching"
-      backText="Back to data fetching"
       description="App Router data fetching is centered on server components, client components, and streaming UI boundaries."
       title="App Router Data Fetching"
     >

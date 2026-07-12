@@ -12,7 +12,9 @@ This is a small Next.js App Router routing playground.
 
 - `src/app/layout.tsx`: root HTML shell, fonts, metadata, global CSS import.
 - `src/app/_components/app-nav.tsx`: shared sticky top navigation bar.
+- `src/app/_components/app-nav.module.css`: styles for the top nav and breadcrumb chevrons.
 - `src/app/_components/code-block.tsx`: shared IDE-like code block and syntax color styling.
+- `src/app/_components/code-block.module.css`: styles for shared code block layout.
 - `src/app/not-found.tsx`: custom 404 page for unmatched routes.
 - `src/app/about/page.tsx`: about page for the learning app.
 - `src/app/page.tsx`: home page with link to the features hub.

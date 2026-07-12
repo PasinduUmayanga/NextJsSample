@@ -3,8 +3,6 @@ import { InfoPanel, PageShell } from "../../../_components";
 export default function SuspenseStreamingPage() {
   return (
     <PageShell
-      backHref="/features/data-fetching/app-router/streaming"
-      backText="Back to streaming"
       description="React Suspense lets slower component sections stream behind a fallback."
       title="Streaming with Suspense"
     >

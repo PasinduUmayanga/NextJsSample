@@ -3,8 +3,6 @@ import { InfoPanel, PageShell } from "../../../_components";
 export default function AppRouterUseEffectPage() {
   return (
     <PageShell
-      backHref="/features/data-fetching/app-router/client-side"
-      backText="Back to client-side fetching"
       description="useEffect fetches data after a client component renders in the browser."
       title="Client Fetching with useEffect"
     >

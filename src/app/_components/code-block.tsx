@@ -1,3 +1,5 @@
+import styles from "./code-block.module.css";
+
 type Token = {
   color: string;
   text: string;
@@ -21,8 +23,12 @@ const COLORS = {
 };
 
 export default function CodeBlock({ children, compact = false }: CodeBlockProps) {
+  const className = compact
+    ? `${styles.block} ${styles.compact}`
+    : styles.block;
+
   return (
-    <pre style={{ ...styles.block, ...(compact ? styles.compact : {}) }}>
+    <pre className={className}>
       <code>
         {children.split("\n").map((line, lineIndex, lines) => (
           <span key={`${line}-${lineIndex}`}>
@@ -92,25 +98,3 @@ function getTokenColor(token: string) {
 
   return COLORS.keyword;
 }
-
-const styles: Record<string, React.CSSProperties> = {
-  block: {
-    background: "#011627",
-    border: "1px solid #1d3b53",
-    borderRadius: 8,
-    color: COLORS.base,
-    fontFamily:
-      'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-    fontSize: 13,
-    lineHeight: 1.65,
-    margin: "8px 0 0",
-    overflowX: "auto",
-    padding: 14,
-    whiteSpace: "pre",
-  },
-  compact: {
-    fontSize: 14,
-    margin: 0,
-    padding: "10px 12px",
-  },
-};

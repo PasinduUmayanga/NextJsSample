@@ -16,8 +16,6 @@ const SERVER_SIDE_TYPES = [
 export default function AppRouterServerSidePage() {
   return (
     <PageShell
-      backHref="/features/data-fetching/app-router"
-      backText="Back to App Router data fetching"
       description="Server-side fetching runs before the page is sent to the browser."
       title="Server-side Data Fetching"
     >

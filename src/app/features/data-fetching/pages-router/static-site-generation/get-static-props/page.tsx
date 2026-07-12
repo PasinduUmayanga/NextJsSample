@@ -3,8 +3,6 @@ import { InfoPanel, PageShell } from "../../../_components";
 export default function GetStaticPropsPage() {
   return (
     <PageShell
-      backHref="/features/data-fetching/pages-router/static-site-generation"
-      backText="Back to SSG"
       description="getStaticProps fetches data at build time in the Pages Router."
       title="getStaticProps()"
     >

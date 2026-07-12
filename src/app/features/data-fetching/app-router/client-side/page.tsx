@@ -21,8 +21,6 @@ const CLIENT_SIDE_TYPES = [
 export default function AppRouterClientSidePage() {
   return (
     <PageShell
-      backHref="/features/data-fetching/app-router"
-      backText="Back to App Router data fetching"
       description="Client-side fetching runs in client components after JavaScript loads."
       title="Client-side Data Fetching"
     >

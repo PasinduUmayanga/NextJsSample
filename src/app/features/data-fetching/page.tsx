@@ -18,8 +18,6 @@ const DATA_FETCHING_TYPES = [
 export default function DataFetchingPage() {
   return (
     <PageShell
-      backHref="/features"
-      backText="Back to features"
       description="Choose the router model first, then explore its data-fetching categories and concrete techniques."
       title="Data Fetching"
     >

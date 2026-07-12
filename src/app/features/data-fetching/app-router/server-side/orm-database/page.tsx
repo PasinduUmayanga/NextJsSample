@@ -3,8 +3,6 @@ import { InfoPanel, PageShell } from "../../../_components";
 export default function AppRouterOrmDatabasePage() {
   return (
     <PageShell
-      backHref="/features/data-fetching/app-router/server-side"
-      backText="Back to server-side fetching"
       description="Server components can call an ORM or database layer without exposing credentials to the browser."
       title="ORM or Database Queries"
     >

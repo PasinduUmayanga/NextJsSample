@@ -3,8 +3,6 @@ import { InfoPanel, PageShell } from "../../../_components";
 export default function AppRouterTanStackQueryPage() {
   return (
     <PageShell
-      backHref="/features/data-fetching/app-router/client-side"
-      backText="Back to client-side fetching"
       description="TanStack Query manages browser server-state, caching, retries, and mutations."
       title="Client Fetching with TanStack Query"
     >

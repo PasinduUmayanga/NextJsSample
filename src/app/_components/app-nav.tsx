@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import styles from "./app-nav.module.css";
 
 const APP_COLORS = {
   text: "#374151",
@@ -19,6 +20,11 @@ const BLUE_FADE_COLORS = [
   "#dbeafe",
 ];
 
+type BreadcrumbStyle = React.CSSProperties & {
+  "--breadcrumb-bg": string;
+  "--breadcrumb-color": string;
+};
+
 export default function AppNav() {
   const pathname = usePathname();
   const pathParts = pathname.split("/").filter(Boolean);
@@ -33,14 +39,14 @@ export default function AppNav() {
   ];
 
   return (
-    <header style={styles.header}>
-      <nav aria-label="Primary navigation" style={styles.nav}>
+    <header className={styles.header}>
+      <nav aria-label="Primary navigation" className={styles.nav}>
         {pathname !== "/" ? (
           <Link
             href={backHref}
             aria-label="Back"
             title="Back"
-            style={styles.iconButton}
+            className={styles.iconButton}
           >
             <svg
               aria-hidden="true"
@@ -58,7 +64,12 @@ export default function AppNav() {
             </svg>
           </Link>
         ) : null}
-        <Link href="/" aria-label="Home" title="Home" style={styles.iconButton}>
+        <Link
+          href="/"
+          aria-label="Home"
+          title="Home"
+          className={styles.iconButton}
+        >
           <svg
             aria-hidden="true"
             fill="none"
@@ -75,37 +86,51 @@ export default function AppNav() {
             <path d="M9 20v-6h6v6" />
           </svg>
         </Link>
+        <Link href="/" className={styles.brand}>
+          Next.js Learning Hub
+        </Link>
       </nav>
-      <nav aria-label="Current navigation path" style={styles.subNav}>
-        <ol style={styles.breadcrumbs}>
+      <nav aria-label="Current navigation path" className={styles.subNav}>
+        <ol className={styles.breadcrumbs}>
           {breadcrumbs.map((item, index) => {
             const isCurrent = index === breadcrumbs.length - 1;
             const background =
               BLUE_FADE_COLORS[index % BLUE_FADE_COLORS.length];
             const isLight = index >= 5;
-            const crumbStyle = {
-              ...styles.crumb,
-              ...(index === 0 ? styles.firstCrumb : styles.middleCrumb),
-              ...(isCurrent ? styles.currentCrumb : {}),
-              background,
-              color: isLight ? APP_COLORS.text : APP_COLORS.white,
+            const crumbClassName = [
+              styles.crumb,
+              index === 0 ? styles.firstCrumb : styles.middleCrumb,
+              isCurrent ? styles.currentCrumb : "",
+            ]
+              .filter(Boolean)
+              .join(" ");
+            const crumbStyle: BreadcrumbStyle = {
+              "--breadcrumb-bg": background,
+              "--breadcrumb-color": isLight
+                ? APP_COLORS.text
+                : APP_COLORS.white,
             };
 
             return (
               <li
                 key={item.href}
-                style={{
-                  ...styles.breadcrumbItem,
-                  marginLeft: index === 0 ? 0 : -18,
-                  zIndex: breadcrumbs.length - index,
-                }}
+                className={styles.breadcrumbItem}
+                style={{ zIndex: breadcrumbs.length - index }}
               >
                 {isCurrent ? (
-                  <span aria-current="page" style={crumbStyle}>
+                  <span
+                    aria-current="page"
+                    className={crumbClassName}
+                    style={crumbStyle}
+                  >
                     {item.label}
                   </span>
                 ) : (
-                  <Link href={item.href} style={crumbStyle}>
+                  <Link
+                    href={item.href}
+                    className={crumbClassName}
+                    style={crumbStyle}
+                  >
                     {item.label}
                   </Link>
                 )}
@@ -125,86 +150,3 @@ function formatSegment(segment: string) {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 }
-
-const styles: Record<string, React.CSSProperties> = {
-  header: {
-    background: "#ffffff",
-    borderBottom: "1px solid #e5e7eb",
-    boxShadow: "0 6px 16px rgba(15, 23, 42, 0.06)",
-    position: "sticky",
-    top: 0,
-    zIndex: 50,
-  },
-  nav: {
-    alignItems: "center",
-    display: "flex",
-    gap: 8,
-    justifyContent: "flex-start",
-    margin: "0 auto",
-    maxWidth: 1100,
-    padding: "10px 24px",
-    width: "100%",
-  },
-  iconButton: {
-    alignItems: "center",
-    background: "#111827",
-    border: "1px solid #111827",
-    borderRadius: 8,
-    color: "#ffffff",
-    display: "inline-flex",
-    height: 40,
-    justifyContent: "center",
-    textDecoration: "none",
-    width: 40,
-  },
-  subNav: {
-    borderTop: "1px solid #f3f4f6",
-    background:
-      "repeating-linear-gradient(135deg, #d1d5db 0, #d1d5db 1px, #e5e7eb 1px, #e5e7eb 18px)",
-  },
-  breadcrumbs: {
-    alignItems: "center",
-    display: "flex",
-    flexWrap: "nowrap",
-    listStyle: "none",
-    margin: "0 auto",
-    maxWidth: 1100,
-    overflowX: "auto",
-    padding: "8px 24px 9px",
-    width: "100%",
-  },
-  breadcrumbItem: {
-    alignItems: "center",
-    display: "inline-flex",
-    flex: "0 0 auto",
-  },
-  crumb: {
-    alignItems: "center",
-    border: "1px solid rgba(17, 24, 39, 0.14)",
-    boxShadow: "0 3px 8px rgba(15, 23, 42, 0.12)",
-    display: "inline-flex",
-    fontSize: 14,
-    fontWeight: 800,
-    height: 38,
-    justifyContent: "center",
-    minWidth: 112,
-    overflow: "hidden",
-    padding: "0 28px 0 34px",
-    textDecoration: "none",
-    textOverflow: "ellipsis",
-    textShadow: "0 1px 1px rgba(0, 0, 0, 0.18)",
-    whiteSpace: "nowrap",
-  },
-  firstCrumb: {
-    clipPath: "polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%)",
-    paddingLeft: 20,
-  },
-  middleCrumb: {
-    clipPath:
-      "polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%, 18px 50%)",
-  },
-  currentCrumb: {
-    outline: "2px solid rgba(255, 255, 255, 0.85)",
-    outlineOffset: -4,
-  },
-};
