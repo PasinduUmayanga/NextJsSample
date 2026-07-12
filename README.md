@@ -4,6 +4,10 @@
 [![Build History](https://img.shields.io/badge/AppVeyor-Build%20History-blue)](https://ci.appveyor.com/project/Mahadenamuththa/nextjssample/history)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-blue)](https://pasinduumayanga.github.io/NextJsSample/)
 
+## Live Demo
+
+[![View on Vercel](https://img.shields.io/badge/View%20Live-Vercel-black?logo=vercel)](https://next-js-sample-five.vercel.app)
+
 # Next.js Learning Hub
 
 This project is a Next.js App Router learning sample. It collects small, focused pages that explain common Next.js concepts with short descriptions and syntax-highlighted code examples.
