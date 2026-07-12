@@ -1,13 +1,11 @@
-import Link from "next/link";
+import BackButton from "@/app/_components/back-button";
 import CodeBlock from "@/app/_components/code-block";
 
 export default function PageRoutingSample() {
   return (
     <main style={styles.page}>
       <section style={styles.panel}>
-        <Link href="/features/routing-types" style={styles.backLink}>
-          Back to routing types
-        </Link>
+        <BackButton href="/features/routing-types" label="Back to routing types" />
         <h1 style={styles.title}>Page Routing Sample</h1>
         <p style={styles.description}>
           This page is rendered from{" "}
@@ -43,14 +41,6 @@ const styles: Record<string, React.CSSProperties> = {
     borderRadius: 8,
     maxWidth: 640,
     padding: 24,
-  },
-  backLink: {
-    color: "#2563eb",
-    display: "inline-flex",
-    fontSize: 14,
-    fontWeight: 700,
-    marginBottom: 16,
-    textDecoration: "none",
   },
   title: {
     color: "#111827",

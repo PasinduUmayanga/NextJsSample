@@ -1,4 +1,4 @@
-import Link from "next/link";
+import BackButton from "@/app/_components/back-button";
 import CodeBlock from "@/app/_components/code-block";
 import SharedUiCard from "./shared-ui-card";
 
@@ -21,9 +21,7 @@ export default function SharedUiComponentsPage() {
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <Link href="/features/component-types" style={styles.backLink}>
-          Back to component types
-        </Link>
+        <BackButton href="/features/component-types" label="Back to component types" />
         <h1 style={styles.title}>Shared UI Components</h1>
         <p style={styles.description}>
           Reusable presentational components controlled by props. They keep
@@ -76,14 +74,6 @@ const styles: Record<string, React.CSSProperties> = {
     maxWidth: 760,
     padding: 24,
     width: "100%",
-  },
-  backLink: {
-    color: "#4b5563",
-    display: "inline-flex",
-    fontSize: 14,
-    fontWeight: 700,
-    marginBottom: 16,
-    textDecoration: "none",
   },
   title: {
     color: "#059669",

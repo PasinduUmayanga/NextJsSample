@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BackButton from "@/app/_components/back-button";
 import CodeBlock from "@/app/_components/code-block";
 
 type Card = {
@@ -23,9 +24,7 @@ export function PageShell({
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <Link href={backHref} style={styles.backLink}>
-          {backText}
-        </Link>
+        <BackButton href={backHref} label={backText} />
         <h1 style={styles.title}>{title}</h1>
         <p style={styles.description}>{description}</p>
         {children}
@@ -71,14 +70,6 @@ const styles: Record<string, React.CSSProperties> = {
   content: {
     maxWidth: 920,
     width: "100%",
-  },
-  backLink: {
-    color: "#4b5563",
-    display: "inline-flex",
-    fontSize: 14,
-    fontWeight: 700,
-    marginBottom: 16,
-    textDecoration: "none",
   },
   title: {
     color: "#111827",

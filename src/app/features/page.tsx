@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BackButton from "@/app/_components/back-button";
 
 const FEATURES = [
   {
@@ -28,9 +29,7 @@ export default function FeaturesPage() {
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <Link href="/" style={styles.backLink}>
-          Back to home
-        </Link>
+        <BackButton href="/" label="Back to home" />
         <h1 style={styles.title}>Features</h1>
         <p style={styles.description}>
           Choose a Next.js concept to explore with small examples.
@@ -70,14 +69,6 @@ const styles: Record<string, React.CSSProperties> = {
   content: {
     maxWidth: 760,
     width: "100%",
-  },
-  backLink: {
-    color: "#4b5563",
-    display: "inline-flex",
-    fontSize: 14,
-    fontWeight: 700,
-    marginBottom: 16,
-    textDecoration: "none",
   },
   title: {
     color: "#111827",

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BackButton from "@/app/_components/back-button";
 
 const ROUTING_TYPES = [
   {
@@ -23,9 +24,7 @@ export default function RoutingTypesPage() {
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <Link href="/features" style={styles.backLink}>
-          Back to features
-        </Link>
+        <BackButton href="/features" label="Back to features" />
         <h1 style={styles.title}>Routing Types</h1>
         <p style={styles.description}>
           Choose which routing concept you want to explore.
@@ -64,14 +63,6 @@ const styles: Record<string, React.CSSProperties> = {
   content: {
     maxWidth: 760,
     width: "100%",
-  },
-  backLink: {
-    color: "#4b5563",
-    display: "inline-flex",
-    fontSize: 14,
-    fontWeight: 700,
-    marginBottom: 16,
-    textDecoration: "none",
   },
   title: {
     color: "#111827",

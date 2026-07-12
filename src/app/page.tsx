@@ -13,6 +13,12 @@ const HOME_ITEMS = [
     description: "Create a new app, install dependencies, and start dev mode.",
     color: "#059669",
   },
+  {
+    href: "/about",
+    title: "About",
+    description: "Learn what this sample app covers and how it is organized.",
+    color: "#0891b2",
+  },
 ];
 
 export default function HomePage() {

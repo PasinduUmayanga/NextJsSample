@@ -1,4 +1,5 @@
 import React from "react";
+import BackButton from "@/app/_components/back-button";
 
 const HelpPage = async ({
   params,
@@ -10,6 +11,7 @@ const HelpPage = async ({
 
   return (
     <div>
+      <BackButton href="/features/routing-types/app-routing" label="Back to app routing" />
       <h1>Help Page</h1>
       {slug.length > 0 ? (
         <p>You are viewing: {slug.join(" / ")}</p>

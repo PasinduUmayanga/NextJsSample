@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import BackButton from "@/app/_components/back-button";
 
 type MenuSection = {
   group: string;
@@ -100,9 +101,7 @@ export default function RoutingsPage() {
   return (
     <main style={styles.page}>
       <section style={styles.content}>
-        <Link href="/features/routing-types" style={styles.backLink}>
-          Back to routing types
-        </Link>
+        <BackButton href="/features/routing-types" label="Back to routing types" />
         <h1 style={styles.title}>App Routing Examples</h1>
         <p style={styles.description}>
           Choose an App Router example and open the matching route.
@@ -169,14 +168,6 @@ const styles: Record<string, React.CSSProperties> = {
   content: {
     maxWidth: 920,
     width: "100%",
-  },
-  backLink: {
-    color: "#4b5563",
-    display: "inline-flex",
-    fontSize: 14,
-    fontWeight: 700,
-    marginBottom: 16,
-    textDecoration: "none",
   },
   title: {
     color: "#111827",
