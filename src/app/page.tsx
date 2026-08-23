@@ -1,119 +1,142 @@
-"use client";
-
+import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { publicAssetPath } from "@/app/_lib/site-paths";
 
-type MenuSection = {
-  group: string;
-  links: { href: string; label: string }[];
-};
-
-const MENU: MenuSection[] = [
+const HOME_ITEMS = [
   {
-    group: "Single Routing",
-    links: [
-      { href: "/about", label: "1) About" },
-      { href: "/contact", label: "2) Contact" },
-    ],
+    href: "/features",
+    title: "Features",
+    description: "Explore examples for routing and component patterns.",
+    color: "#2563eb",
   },
   {
-    group: "Nested Routes",
-    links: [
-      {
-        href: "/dashboard",
-        label: "3) Dashboard",
-      },
-      {
-        href: "/dashboard/analytics",
-        label: "4) Dashboard -> Analytics",
-      },
-    ],
+    href: "/setting-up-nextjs",
+    title: "Setting up Next.js",
+    description: "Create a new app, install dependencies, and start dev mode.",
+    color: "#059669",
   },
   {
-    group: "Dynamic Routes",
-    links: [
-      { href: "/blog", label: "5) Blog main page" },
-      { href: "/blog/1", label: "6) Blog post 1" },
-      { href: "/blog/2", label: "7) Blog post 2" },
-    ],
-  },
-  {
-    group: "Catch-all Segments",
-    links: [
-      {
-        href: "/routing/catch-all-required/a/b/c",
-        label: "5) Required Catch-All ([...slug])",
-      },
-      {
-        href: "/routing/catch-all-optional",
-        label: "6) Optional Catch-All ([[...slug]]) – none",
-      },
-      {
-        href: "/routing/catch-all-optional/a/b",
-        label: "6) Optional Catch-All ([[...slug]]) – with segments",
-      },
-    ],
+    href: "/about",
+    title: "About",
+    description: "Learn what this sample app covers and how it is organized.",
+    color: "#0891b2",
   },
 ];
 
-export default function LearnMenu() {
-  const pathname = usePathname();
-
+export default function HomePage() {
   return (
-    <nav style={styles.nav}>
-      <h2 style={styles.title}>Next.js Routing Playground</h2>
-      {MENU.map((section) => (
-        <div key={section.group} style={styles.section}>
-          <div style={styles.groupTitle}>{section.group}</div>
-          <ul style={styles.ul}>
-            {section.links.map((item) => {
-              const active = pathname === item.href;
-              return (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    style={{
-                      ...styles.link,
-                      ...(active ? styles.linkActive : {}),
-                    }}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+    <main style={styles.page}>
+      <Image
+        src={publicAssetPath("/app-logo.png")}
+        alt=""
+        aria-hidden="true"
+        fill
+        priority
+        sizes="100vw"
+        style={styles.backgroundLogo}
+      />
+      <section style={styles.content}>
+        <h1 style={styles.title}>Next.js Learning Hub</h1>
+        <p style={styles.description}>
+          Next.js is a React framework for building fast web apps with routing,
+          rendering, data loading, and production tooling built in.
+        </p>
+        <p style={styles.descriptionSmall}>
+          Use this learning sample to explore setup, routing, and component
+          patterns step by step.
+        </p>
+        <div style={styles.grid}>
+          {HOME_ITEMS.map((item) => (
+            <Link
+              href={item.href}
+              key={item.href}
+              style={{
+                ...styles.card,
+                borderColor: item.color,
+                color: item.color,
+              }}
+            >
+              <span style={styles.cardTitle}>{item.title}</span>
+              <span style={styles.cardDescription}>{item.description}</span>
+            </Link>
+          ))}
         </div>
-      ))}
-    </nav>
+      </section>
+    </main>
   );
 }
 
 const styles: Record<string, React.CSSProperties> = {
-  nav: {
-    borderRight: "1px solid #e5e7eb",
-    padding: "1rem",
-    minWidth: 240,
-    position: "sticky",
-    top: 0,
-    height: "100vh",
-    overflowY: "auto",
+  page: {
+    alignItems: "center",
+    background: "#f3f4f6",
+    display: "flex",
+    justifyContent: "center",
+    minHeight: "calc(100svh - 106px)",
+    overflow: "hidden",
+    padding: "clamp(14px, 3vw, 24px)",
+    position: "relative",
   },
-  title: { margin: 0, fontSize: 18, fontWeight: 600 },
-  section: { marginTop: 16 },
-  groupTitle: {
-    fontSize: 12,
-    fontWeight: 600,
-    color: "#6b7280",
-    textTransform: "uppercase",
+  content: {
+    maxWidth: 820,
+    position: "relative",
+    width: "100%",
+    zIndex: 1,
   },
-  ul: { listStyle: "none", margin: "8px 0 0", padding: 0 },
-  link: {
-    display: "block",
-    padding: "6px 8px",
-    borderRadius: 6,
-    textDecoration: "none",
+  backgroundLogo: {
+    objectFit: "contain",
+    objectPosition: "center",
+    opacity: 0.08,
+    pointerEvents: "none",
+    transform: "scale(1.18)",
+  },
+  title: {
     color: "#111827",
+    fontSize: "clamp(32px, 5vw, 48px)",
+    fontWeight: 800,
+    margin: 0,
+    textAlign: "center",
   },
-  linkActive: { background: "#f3f4f6", fontWeight: 600 },
+  description: {
+    color: "#4b5563",
+    fontSize: "clamp(16px, 2vw, 18px)",
+    lineHeight: 1.6,
+    margin: "12px auto 8px",
+    maxWidth: 520,
+    textAlign: "center",
+  },
+  descriptionSmall: {
+    color: "#6b7280",
+    fontSize: 15,
+    lineHeight: 1.5,
+    margin: "0 auto clamp(16px, 3vw, 24px)",
+    maxWidth: 560,
+    textAlign: "center",
+  },
+  grid: {
+    display: "grid",
+    gap: "clamp(10px, 2vw, 16px)",
+    gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+  },
+  card: {
+    background: "#ffffff",
+    border: "2px solid",
+    borderRadius: 8,
+    boxShadow: "0 10px 18px rgba(15, 23, 42, 0.08)",
+    display: "flex",
+    flexDirection: "column",
+    minHeight: 124,
+    padding: "clamp(14px, 2.5vw, 20px)",
+    textDecoration: "none",
+  },
+  cardTitle: {
+    fontSize: "clamp(20px, 3vw, 24px)",
+    fontWeight: 800,
+  },
+  cardDescription: {
+    color: "#4b5563",
+    fontSize: 15,
+    lineHeight: 1.5,
+    marginTop: 10,
+  },
 };
