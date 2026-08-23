@@ -1,136 +1,45 @@
-![Next.js Learning Hub](https://github.com/user-attachments/assets/deeedf66-919e-44ff-a59f-b488111194d2)
+# Next.js Routing Playground
 
-[![Build status](https://ci.appveyor.com/api/projects/status/79ff1day6l9uhqae/branch/master?svg=true)](https://ci.appveyor.com/project/Mahadenamuththa/nextjssample/branch/master)
-[![Build History](https://img.shields.io/badge/AppVeyor-Build%20History-blue)](https://ci.appveyor.com/project/Mahadenamuththa/nextjssample/history)
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-blue)](https://pasinduumayanga.github.io/NextJsSample/)
+![Node.js](https://img.shields.io/badge/Node.js-20%2B-339933?logo=node.js&logoColor=white)
+![npm](https://img.shields.io/badge/npm-package%20manager-CB3837?logo=npm&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
+[![Last commit](https://img.shields.io/github/last-commit/PasinduUmayanga/NextJsSample)](https://github.com/PasinduUmayanga/NextJsSample/commits/main)
 
-## Live Demo
+This repository contains a small Next.js App Router learning application. It provides practical examples of routing, navigation, data fetching, data mutation, state management, component types, and image and font optimization.
 
-[![View on Vercel](https://img.shields.io/badge/View%20Live-Vercel-black?logo=vercel)](https://next-js-sample-five.vercel.app)
+## Project structure
 
-# Next.js Learning Hub
+```text
+NextJsSample/
+├─ public/                         Static assets
+├─ src/
+│  └─ app/
+│     ├─ _components/             Shared application components
+│     ├─ about/                   About page
+│     ├─ features/                Next.js feature examples
+│     │  ├─ component-types/      Server, client, and shared UI samples
+│     │  ├─ data-fetching/        App Router and Pages Router examples
+│     │  ├─ image-font-optimization/
+│     │  ├─ mutating-data/        Data mutation examples
+│     │  ├─ navigation/           Navigation API examples
+│     │  ├─ routing-types/        Static, dynamic, and catch-all routes
+│     │  └─ state-management/     Client and server state examples
+│     ├─ setting-up-nextjs/       Next.js setup guide
+│     ├─ globals.css              Global styles
+│     ├─ layout.tsx               Root application layout
+│     └─ page.tsx                 Home page
+├─ package.json
+├─ postcss.config.mjs
+├─ tsconfig.json
+└─ next.config.ts
+```
 
-This project is a Next.js App Router learning sample. It collects small, focused pages that explain common Next.js concepts with short descriptions and syntax-highlighted code examples.
+## Getting started
 
-## What This Project Covers
-
-| Section | Route | Learning focus |
-| --- | --- | --- |
-| Setting Up Next.js | `/setting-up-nextjs` | Installation order, project creation, dependencies, and development commands |
-| Features | `/features` | Main menu for all learning sections |
-| Routing | `/features/routing-types` | App Router, Pages Router, static routes, nested routes, dynamic routes, and catch-all routes |
-| Component Types | `/features/component-types` | Server Components, Client Components, Shared UI Components, and rendering comparison |
-| Data Fetching | `/features/data-fetching` | App Router fetching, Pages Router data functions, streaming, SWR, and TanStack Query |
-| Navigation | `/features/navigation` | `<Link>`, `useRouter()`, `usePathname()`, `useSearchParams()`, redirects, route params, query params, prefetching, and client-side navigation |
-| Mutating Data | `/features/mutating-data` | Server Functions, Server Actions, forms, creating, updating, deleting, validation, pending states, optimistic updates, and revalidation |
-| State Management | `/features/state-management` | URL state, React state, React Context, server state, cookies, localStorage, Zustand, Redux Toolkit, SWR, and TanStack Query |
-| Image and Font Optimization | `/features/image-font-optimization` | `next/image`, local images, remote images, responsive sizes, placeholders, priority loading, `next/font`, local fonts, and Google fonts |
-| About | `/about` | Project overview page |
-| Not Found | Any missing route | Custom 404 page |
-
-## Learning Sections
-
-### Routing
-
-The routing section separates App Router and Page Routing examples. App Router samples include:
-
-- Single route pages
-- Nested routes
-- Dynamic route segments
-- Nested dynamic route segments
-- Catch-all and optional catch-all segments
-- An App Routing about page with the same visual style
-
-### Component Types
-
-The component section compares how components render and where they should run:
-
-- Server Components for server-only data and backend access
-- Client Components for browser interactivity, hooks, and lifecycle behavior
-- Shared UI Components for reusable presentation
-- A comparison table for fetching data, backend access, sensitive information, dependencies, state, and React component usage
-
-### Data Fetching
-
-The data fetching section is organized by router type.
-
-App Router examples:
-
-- Server-side data fetching with `fetch()`
-- ORM or direct database query patterns
-- Client-side fetching with `useEffect`
-- SWR and TanStack Query samples
-- Streaming with `loading.tsx` and React `<Suspense>`
-
-Pages Router examples:
-
-- Static Site Generation with `getStaticProps()`
-- Server-Side Rendering with `getServerSideProps()`
-- Incremental Static Regeneration with `getStaticProps()` and `revalidate`
-- Client-Side Rendering with `useEffect`, SWR, and TanStack Query
-
-### Navigation
-
-The navigation section gives a separate page for each navigation concept:
-
-- `<Link>`
-- `useRouter()`
-- `usePathname()`
-- `useSearchParams()`
-- Redirects
-- Route parameters
-- Query parameters
-- Prefetching
-- Client-side navigation
-
-### Mutating Data
-
-The mutating data section explains common App Router mutation patterns:
-
-- Server Functions
-- Server Actions
-- The `"use server"` directive
-- Form submissions
-- Creating records
-- Updating records
-- Deleting records
-- Form validation
-- Pending states
-- Optimistic updates
-- Revalidation after mutations
-
-### State Management
-
-The state management section now includes expanded code samples for:
-
-- URL search parameters between pages
-- React `useState`
-- React Context with provider setup and usage
-- Server state with caching and revalidation examples
-- Cookies for request-backed state
-- localStorage for browser-only persisted state
-- Zustand stores, selectors, and persistence
-- Redux Toolkit slices, store setup, typed hooks, Provider, and usage
-- SWR fetching, conditional keys, mutation cache updates, and provider setup
-- TanStack Query provider setup, queries, query keys, mutations, invalidation, and freshness settings
-
-### Image and Font Optimization
-
-The optimization section covers:
-
-- `next/image`
-- Local image usage
-- Remote image usage
-- Responsive image sizes
-- Image placeholders
-- Priority image loading
-- `next/font`
-- Local fonts
-- Google fonts
-
-## Run Locally
-
-Install dependencies:
+Install the dependencies:
 
 ```bash
 npm install
@@ -142,62 +51,25 @@ Start the development server:
 npm run dev
 ```
 
-Open the app:
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-```text
-http://localhost:3000
-```
-
-Build for production:
+## Available commands
 
 ```bash
-npm run build
+npm run dev    # Start the development server
+npm run build  # Create a production build
+npm run lint   # Run ESLint
 ```
 
-Build for a subfolder such as `/NextJsSample`:
+## Main routes
 
-```bash
-npm run build:iis-nextjssample
-```
-
-For static hosting, Next.js exports the site to the `out` folder. This project uses `trailingSlash: true`, so routes are exported as folders with `index.html` files, for example:
-
-```text
-out/features/index.html
-out/features/state-management/index.html
-```
-
-When hosting at the IIS site root, use the normal `npm run build` output and copy the contents of `out` into that IIS root folder. When hosting under `/NextJsSample`, build with `NEXT_PUBLIC_BASE_PATH="/NextJsSample"` and copy the contents of `out` into the IIS `NextJsSample` folder. Do not copy the `out` folder itself as a nested folder. The exported `web.config` enables `index.html` as the default document and adds MIME mappings for static assets such as CSS and JavaScript.
-
-For the URL `http://localhost:7000/NextJsSample/features/`, the deployed folder must contain:
-
-```text
-C:\inetpub\wwwroot\nextjs_learning_hub\NextJsSample\index.html
-C:\inetpub\wwwroot\nextjs_learning_hub\NextJsSample\features\index.html
-C:\inetpub\wwwroot\nextjs_learning_hub\NextJsSample\_next\static\css\...
-C:\inetpub\wwwroot\nextjs_learning_hub\NextJsSample\app-logo.png
-```
-
-Start the production server:
-
-```bash
-npm run start
-```
-
-## Project Scripts
-
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Start the local Next.js development server |
-| `npm run build` | Create a production build |
-| `npm run start` | Run the production build |
-| `npm run lint` | Run the configured lint command |
-
-## Tech Stack
-
-- Next.js 15
-- React 19
-- TypeScript
-- Tailwind CSS dependency setup
-- App Router
-- CSS modules for shared UI components
+- `/features` — feature selector
+- `/features/navigation` — navigation examples
+- `/features/data-fetching` — App Router and Pages Router data fetching
+- `/features/mutating-data` — data mutation examples
+- `/features/state-management` — state management examples
+- `/features/image-font-optimization` — image and font optimization examples
+- `/features/component-types` — server and client component examples
+- `/features/routing-types` — routing pattern examples
+- `/setting-up-nextjs` — project setup guide
+- `/about` — information about the learning application
