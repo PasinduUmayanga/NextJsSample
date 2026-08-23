@@ -2,8 +2,8 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/17uy8a50u77cv2u7/branch/main?svg=true)](https://ci.appveyor.com/project/Mahadenamuththa/NextJsSample/branch/main)
 [![Build History](https://img.shields.io/badge/AppVeyor-Build%20History-blue?logo=appveyor)](https://ci.appveyor.com/project/Mahadenamuththa/NextJsSample/history)
-[![Vercel Deployments](https://github.com/PasinduUmayanga/feature-react-vite-monorepo-sample/actions/workflows/vercel.yml/badge.svg?branch=main)](https://github.com/PasinduUmayanga/feature-react-vite-monorepo-sample/actions/workflows/vercel.yml)
-[![Web on Vercel](https://img.shields.io/badge/Vercel-Web-000000?logo=vercel)](https://feature-react-vite-monorepo-sample-theta.vercel.app/)
+[![Vercel Deployments](https://github.com/PasinduUmayanga/NextJsSample/actions/workflows/vercel.yml/badge.svg?branch=main)](https://github.com/PasinduUmayanga/NextJsSample/actions/workflows/vercel.yml)
+[![Web on Vercel](https://img.shields.io/badge/Vercel-Web-000000?logo=vercel)](https://next-js-sample-five.vercel.app/)
 ![Node.js](https://img.shields.io/badge/Node.js-20%2B-339933?logo=node.js&logoColor=white)
 ![npm](https://img.shields.io/badge/npm-package%20manager-CB3837?logo=npm&logoColor=white)
 ![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=next.js&logoColor=white)
