@@ -1,5 +1,7 @@
 # Next.js Routing Playground
 
+[![Build status](https://ci.appveyor.com/api/projects/status/17uy8a50u77cv2u7/branch/main?svg=true)](https://ci.appveyor.com/project/Mahadenamuththa/NextJsSample/branch/main)
+[![Build History](https://img.shields.io/badge/AppVeyor-Build%20History-blue?logo=appveyor)](https://ci.appveyor.com/project/Mahadenamuththa/NextJsSample/history)
 ![Node.js](https://img.shields.io/badge/Node.js-20%2B-339933?logo=node.js&logoColor=white)
 ![npm](https://img.shields.io/badge/npm-package%20manager-CB3837?logo=npm&logoColor=white)
 ![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=next.js&logoColor=white)
